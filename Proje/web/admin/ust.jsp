@@ -294,6 +294,10 @@
                         <li>
                             <a href="urunSyf.jsp"><i class="fa fa-list-alt fa-fw"></i> Ürünler</a>
                         </li>
+						
+						<li>
+                            <a href="icerikYonetimi.jsp"><i class="fa fa-list-alt fa-fw"></i> İçerik Yönetimi</a>
+                        </li>
                         
                         <li>
                             <a href="slayt.jsp"><i class="fa fa-list-alt fa-fw"></i> Slayt Kontrolü</a>
