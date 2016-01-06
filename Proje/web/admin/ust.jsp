@@ -305,6 +305,10 @@
                         <li>
                             <a href="begeniYonetim.jsp"><i class="fa fa-heart fa-fw"></i> Beğeniler</a>
                         </li>
+						
+						 <li>
+                            <a href="yerlesimDuzeni.jsp"><i class="fa fa-list-alt fa-fw"></i> Yerleşim Belirle</a>
+                        </li>
                         
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
