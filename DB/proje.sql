@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : localhost
-Source Server Version : 50505
+Source Server         : mysql
+Source Server Version : 50616
 Source Host           : localhost:3306
-Source Database       : projem
+Source Database       : proje
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50616
 File Encoding         : 65001
 
-Date: 2016-01-06 17:06:03
+Date: 2016-01-06 17:37:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -56,6 +56,25 @@ CREATE TABLE `duyurular` (
 INSERT INTO `duyurular` VALUES ('34', '1', 'Yeni Sezon Indirimi Basladi', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:02:29');
 INSERT INTO `duyurular` VALUES ('35', '1', 'Tüm Magazalarimizda SR-5645 Nolu Urun Satilmaya Baslanacaktir', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:04:18');
 INSERT INTO `duyurular` VALUES ('36', '0', '1 Ocak Tatil Edilmistir', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:05:01');
+
+-- ----------------------------
+-- Table structure for galeriler
+-- ----------------------------
+DROP TABLE IF EXISTS `galeriler`;
+CREATE TABLE `galeriler` (
+  `galeriID` int(11) NOT NULL AUTO_INCREMENT,
+  `galeriAdi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `galeriAciklamasi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `galeriDurumu` tinyint(1) DEFAULT NULL,
+  `olusturulmaTarihi` date DEFAULT NULL,
+  PRIMARY KEY (`galeriID`)
+) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of galeriler
+-- ----------------------------
+INSERT INTO `galeriler` VALUES ('36', 'utyu', 'utyut', '1', '2016-01-06');
+INSERT INTO `galeriler` VALUES ('38', 'Bursa', 'Bursa Tarhi', '0', '2016-01-06');
 
 -- ----------------------------
 -- Table structure for kategori
