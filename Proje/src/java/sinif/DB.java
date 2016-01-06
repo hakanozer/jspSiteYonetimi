@@ -64,7 +64,15 @@ public final class DB {
         return rs;
     }
 
-   
+   public ResultSet dataGtr(String query) {
+        ResultSet rs = null;
+        try {
+            rs = st.executeQuery(query);
+        } catch (Exception e) {
+            System.err.println("Data Getirme Hatası : " + e);
+        }
+        return rs;
+    }  
     
     
    // md5 fonk 
