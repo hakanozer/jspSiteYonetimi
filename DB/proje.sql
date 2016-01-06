@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
+Source Server         : MYSQL
 Source Server Version : 50626
 Source Host           : localhost:3306
-Source Database       : proje
+Source Database       : deneme
 
 Target Server Type    : MYSQL
 Target Server Version : 50626
 File Encoding         : 65001
 
-Date: 2016-01-06 12:35:33
+Date: 2016-01-06 13:38:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -137,6 +137,9 @@ CREATE TABLE `urunler` (
   `katID` int(11) NOT NULL,
   `baslik` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
   `kisaAciklama` varchar(500) COLLATE utf8_turkish_ci NOT NULL,
+  `gununUrunu` tinyint(255) DEFAULT NULL,
+  `haftaninUrunu` tinyint(255) DEFAULT NULL,
+  `kampanyaliUrun` tinyint(255) DEFAULT NULL,
   `detay` text COLLATE utf8_turkish_ci NOT NULL,
   `piyasaFiyati` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
   `gecerliFiyat` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
@@ -149,8 +152,8 @@ CREATE TABLE `urunler` (
 -- ----------------------------
 -- Records of urunler
 -- ----------------------------
-INSERT INTO `urunler` VALUES ('4', '45', 'sadfsdf', 'sdfs', '<p style=\"text-align:center\">fdfg<em><strong>dfgd fg</strong></em>dfgd</p>\r\n\r\n<p>aksljdaks jdaksd klasj dkals</p>\r\n', '12', '21', '0', '2016-01-05 09:56:55');
-INSERT INTO `urunler` VALUES ('5', '1', 'televizyon', 'tele aç?klama', '<p>televizyon</p>\r\n', '3100', '2999', '0', '2016-01-05 10:32:42');
+INSERT INTO `urunler` VALUES ('4', '45', 'sadfsdf', 'sdfs', '0', '0', '0', '<p style=\"text-align:center\">fdfg<em><strong>dfgd fg</strong></em>dfgd</p>\r\n\r\n<p>aksljdaks jdaksd klasj dkals</p>\r\n', '12', '21', '0', '2016-01-05 09:56:55');
+INSERT INTO `urunler` VALUES ('5', '1', 'televizyon', 'tele aç?klama', '0', '0', '0', '<p>televizyon</p>\r\n', '3100', '2999', '0', '2016-01-05 10:32:42');
 
 -- ----------------------------
 -- Table structure for urun_resimleri
