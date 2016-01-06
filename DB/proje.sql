@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MYSQL
-Source Server Version : 50626
+Source Server         : localhost
+Source Server Version : 50505
 Source Host           : localhost:3306
-Source Database       : deneme
+Source Database       : projem
 
 Target Server Type    : MYSQL
-Target Server Version : 50626
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-06 13:38:03
+Date: 2016-01-06 17:06:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,27 @@ CREATE TABLE `begeniyonetim` (
 INSERT INTO `begeniyonetim` VALUES ('1', '1', '2', '3', '2016-01-05 12:34:40');
 INSERT INTO `begeniyonetim` VALUES ('2', '1', '3', '2', '2016-01-05 12:34:50');
 INSERT INTO `begeniyonetim` VALUES ('3', '2', '4', '3', '2016-01-05 12:35:08');
+
+-- ----------------------------
+-- Table structure for duyurular
+-- ----------------------------
+DROP TABLE IF EXISTS `duyurular`;
+CREATE TABLE `duyurular` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `durum` tinyint(1) NOT NULL,
+  `baslik` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `detay` text COLLATE utf8_turkish_ci NOT NULL,
+  `tarih` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `baslik` (`baslik`)
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of duyurular
+-- ----------------------------
+INSERT INTO `duyurular` VALUES ('34', '1', 'Yeni Sezon Indirimi Basladi', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:02:29');
+INSERT INTO `duyurular` VALUES ('35', '1', 'Tüm Magazalarimizda SR-5645 Nolu Urun Satilmaya Baslanacaktir', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:04:18');
+INSERT INTO `duyurular` VALUES ('36', '0', '1 Ocak Tatil Edilmistir', '<p>Lorem Ipsum</p>\r\n', '2016-01-06 16:05:01');
 
 -- ----------------------------
 -- Table structure for kategori

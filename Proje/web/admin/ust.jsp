@@ -309,7 +309,10 @@
 						 <li>
                             <a href="yerlesimDuzeni.jsp"><i class="fa fa-list-alt fa-fw"></i> Yerleşim Belirle</a>
                         </li>
-                        
+                        <li>
+                            <a href="duyuru.jsp"><i class="fa fa-bullhorn fa-fw"></i> Duyuru Yönetimi</a>
+                            
+                        </li>
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Charts<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
