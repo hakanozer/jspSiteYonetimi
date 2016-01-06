@@ -99,7 +99,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <h1 class="page-header">Kategoriler</h1>
+            <h1 class="page-header">Ürünler</h1>
         </div>
 
         <!-- çalışma alanı !-->
