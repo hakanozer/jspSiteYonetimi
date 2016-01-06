@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50616
+Source Server         : MySQL
+Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : proje
 
 Target Server Type    : MYSQL
-Target Server Version : 50616
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-06 17:37:32
+Date: 2016-01-06 23:17:04
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -75,6 +75,27 @@ CREATE TABLE `galeriler` (
 -- ----------------------------
 INSERT INTO `galeriler` VALUES ('36', 'utyu', 'utyut', '1', '2016-01-06');
 INSERT INTO `galeriler` VALUES ('38', 'Bursa', 'Bursa Tarhi', '0', '2016-01-06');
+
+-- ----------------------------
+-- Table structure for kargo
+-- ----------------------------
+DROP TABLE IF EXISTS `kargo`;
+CREATE TABLE `kargo` (
+  `kargo_id` int(11) NOT NULL AUTO_INCREMENT,
+  `kargo_adi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ucreti` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `tarih` datetime DEFAULT NULL,
+  PRIMARY KEY (`kargo_id`),
+  UNIQUE KEY `kargoAd` (`kargo_adi`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of kargo
+-- ----------------------------
+INSERT INTO `kargo` VALUES ('1', 'MNG Kargo', '4.00', '2016-01-06 13:13:51');
+INSERT INTO `kargo` VALUES ('2', 'Aras Kargo', '6.00', '2016-01-06 13:14:07');
+INSERT INTO `kargo` VALUES ('6', 'Yurtici Kargo', '4.00', '2016-01-06 21:50:18');
+INSERT INTO `kargo` VALUES ('9', 'Surat Kargo', '5.00', '2016-01-06 21:57:00');
 
 -- ----------------------------
 -- Table structure for kategori
