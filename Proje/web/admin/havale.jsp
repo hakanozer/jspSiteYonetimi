@@ -15,11 +15,11 @@
 
         id = request.getParameter("id");
         info = request.getParameter("info");
-        System.out.println(id + "    aaaaaaaaa    " + info);
+        
         try {
             int sonuc = db.st.executeUpdate("update havale set id = '" + id + "', info = '" + info + "' where id = '" + id + "' ");
             out.print("<script>window.location.href = 'havale.jsp';</script>");
-            System.out.println("asdd");
+            
         } catch (Exception ex) {
             hata = true;
         }
