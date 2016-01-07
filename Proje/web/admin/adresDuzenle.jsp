@@ -66,11 +66,11 @@
                                 <form action="" method="post">
                                     <div class="form-group">
                                         <label>Adres Tanımı</label>
-                                        <input name="duzenleAdresTanimi" class="form-control" placeholder="Adres Tanımı" value="<%=adresBaslik%>">
+                                        <input name="duzenleAdresTanimi" class="form-control" placeholder="Adres Tanımı" required value="<%=adresBaslik%>">
                                     </div>
                                     <div class="form-group">
                                         <label>Açık Adres</label>
-                                        <textarea name="duzenleAdres" class="form-control" rows="3"><%=adres%></textarea>
+                                        <textarea name="duzenleAdres" class="form-control" rows="3" required ><%=adres%></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Posta Kodu</label>
@@ -78,11 +78,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label>İlçe</label>
-                                        <input name="duzenleIlce" class="form-control" placeholder="İlçe" value="<%=ilce%>">
+                                        <input name="duzenleIlce" class="form-control" placeholder="İlçe" required value="<%=ilce%>">
                                     </div>
                                     <div class="form-group">
                                         <label>İl</label>
-                                        <input name="duzenleIl" class="form-control" placeholder="İl" value="<%=il%>">
+                                        <input name="duzenleIl" class="form-control" placeholder="İl"  required value="<%=il%>">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" name="aDuzenle" class="btn btn-success" value="Düzenle">

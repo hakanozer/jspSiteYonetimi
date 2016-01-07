@@ -50,11 +50,11 @@
                             <form action="" method="post">
                                 <div class="form-group">
                                     <label>Adres Tanımı</label>
-                                    <input name="adresTanimi" class="form-control" placeholder="Adres Tanımı">
+                                    <input name="adresTanimi" class="form-control" placeholder="Adres Tanımı" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Açık Adres</label>
-                                    <textarea name="adres" class="form-control" rows="3"></textarea>
+                                    <textarea name="adres" class="form-control" rows="3" required></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label>Posta Kodu</label>
@@ -62,12 +62,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label>İlçe</label>
-                                    <input name="ilce" class="form-control" placeholder="İlçe">
+                                    <input name="ilce" class="form-control" placeholder="İlçe" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label>İl</label>
-                                    <input name="il" class="form-control" placeholder="İl">
+                                    <input name="il" class="form-control" placeholder="İl" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" name="adresKaydet" class="btn btn-success" value="Kaydet">

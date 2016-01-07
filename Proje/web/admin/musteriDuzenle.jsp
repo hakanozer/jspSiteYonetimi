@@ -144,27 +144,27 @@
                                 <form action="" method="post">
                                     <div class="form-group">
                                         <label>Adı</label>
-                                        <input name="adi" class="form-control" placeholder="Adı" value="<%=adi%>">
+                                        <input name="adi" class="form-control" placeholder="Adı" required value="<%=adi%>">
                                     </div>
                                     <div class="form-group">
                                         <label>Soyadı</label>
-                                        <input name="soyadi" class="form-control" placeholder="Soyadı" value="<%=soyadi%>">
+                                        <input name="soyadi" class="form-control" placeholder="Soyadı"  required value="<%=soyadi%>">
                                     </div>
                                     <div class="form-group">
                                         <label>Mail</label>
-                                        <input name="mail" class="form-control" placeholder="Mail" value="<%=mail%>">
+                                        <input name="mail" class="form-control" placeholder="Mail"required value="<%=mail%>">
                                     </div>
                                     <div class="form-group">
                                         <label>Şifre</label>
-                                        <input name="sifre" class="form-control" placeholder="Şifre" value="">
+                                        <input name="sifre" class="form-control" placeholder="Şifre" required value="">
                                     </div>
                                     <div class="form-group">
                                         <label>Telefon</label>
-                                        <input name="telefon" class="form-control" placeholder="Telefon" value="<%=telefon%>">
+                                        <input name="telefon" class="form-control" placeholder="Telefon" required value="<%=telefon%>">
                                     </div>
                                     <div class="form-group">
                                         <label>Ban</label>
-                                        <input name="ban" class="form-control" placeholder="Banlanan kullanıcı için 1, diğerleri için 0 giriniz." value="<%=ban%>">
+                                        <input name="ban" class="form-control"  required placeholder="Banlanan kullanıcı için 1, diğerleri için 0 giriniz." value="<%=ban%>">
                                     </div>
                                     <div class="form-group">
                                         <input type="submit" name="mDuzenle" class="btn btn-success" value="Düzenle">

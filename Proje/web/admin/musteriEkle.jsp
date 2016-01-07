@@ -44,24 +44,24 @@
                             <form action="" method="post">
                                 <div class="form-group">
                                     <label>Adı</label>
-                                    <input name="adi" class="form-control" placeholder="Adı">
+                                    <input name="adi" class="form-control" placeholder="Adı" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Soyadı</label>
-                                    <input name="soyadi" class="form-control" placeholder="Soyadı">
+                                    <input name="soyadi" class="form-control" placeholder="Soyadı" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Mail</label>
-                                    <input name="mail" class="form-control" placeholder="Mail">
+                                    <input name="mail" class="form-control" placeholder="Mail" required>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label>Şifre</label>
-                                    <input name="sifre" class="form-control" placeholder="Şifre">
+                                    <input name="sifre" class="form-control" placeholder="Şifre" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Telefon</label>
-                                    <input name="telefon" class="form-control" placeholder="Telefon">
+                                    <input name="telefon" class="form-control" placeholder="Telefon" required>
                                 </div>
                                 <div class="form-group">
                                     <input type="submit" name="mKaydet" class="btn btn-success" value="Kaydet">
