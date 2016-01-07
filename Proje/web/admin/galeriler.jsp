@@ -21,26 +21,34 @@
 
                             <!--Gösterim Galeriler-->
                             <%
-                            String adi="";
-                            String aciklama="";
-                            String durum="";
+                                String adi = "";
+                                String aciklama = "";
+                                String durum = "";
+                                String urunresim = "";
+                                String albumID = "";
                                 try {
-                                    //inner join urun_resimleri on galeriler.galeriID=urun_resimleri.urun_id
-                                    ResultSet rs = db.data("galeriler");
-                                   // ResultSet rsResim=db.data("urun_resimleri WHERE urun_id=");
-                                    while (rs.next()) { 
-                             if(rs.getString("galeriID").equals(request.getParameter("albumId")))
-                            {
-                            
-                               adi=rs.getString("galeriAdi");
-                               aciklama=rs.getString("galeriAciklamasi"); 
-                               durum=rs.getString("galeriDurumu"); 
-                            }
+
+                                    ResultSet rs = db.data("galeriler left join galeri_resimleri on galeriler.galeriID=galeri_resimleri.urun_id GROUP BY galeriler.galeriID");
+
+                                    while (rs.next()) {
+                                        if (rs.getString("galeriID").equals(request.getParameter("albumId"))) {
+
+                                            adi = rs.getString("galeriAdi");
+                                            aciklama = rs.getString("galeriAciklamasi");
+                                            durum = rs.getString("galeriDurumu");
+                                            urunresim = rs.getString("adi");
+                                            albumID = rs.getString("galeriID");
+                                        }
                             %>
-                                       <div class="col-md-6 col-xs-12">
+                            <div class="col-md-6 col-xs-12">
                                 <div class="thumb">
                                     <a href="galeriview.jsp?albumId=<%=rs.getString("galeriID")%>">
-                                        <img src="images/1/MTE=_20150617195626.jpg" class="full" alt="<%=rs.getString("galeriAciklamasi")%>"></a>
+                                        <%
+                                            if (rs.getString("adi") != null) {%>
+                                        <img src="<% out.print(galeriResimFile + rs.getString("galeriID") + "/" + rs.getString("adi"));%>" class="full" alt="<%=rs.getString("galeriAciklamasi")%>"></a>
+                                        <%} else {%>
+                                    <img src="<% out.print(galeriResimFile + "noimage.jpg");%>" class="full" alt=""></a> 
+                                    <%}%>
 
                                     <a href="galeriview.jsp?albumId=<%=rs.getString("galeriID")%>">
                                         <div class="hover">
@@ -51,72 +59,75 @@
                                 <h5 class="title">
                                     <a href="galeriview.jsp?albumId=<%=rs.getString("galeriID")%>"><%=rs.getString("galeriAdi")%></a>
                                     <a title="Albümü Kaldır" class="pull-right" href="galeriislemleri.jsp?istek=galeriSil&albumId=<%=rs.getString("galeriID")%>"><i class="fa fa-trash-o"></i></a>
-                        &nbsp;&nbsp;<a title="Albümü Düzenle" class="pull-right" href="galeriler.jsp?albumId=<%=rs.getString("galeriID")%>"><i class="fa fa-edit">&nbsp;&nbsp;</i></a>
-                                  
-                                    
+                                    &nbsp;&nbsp;<a title="Albümü Düzenle" class="pull-right" href="galeriler.jsp?albumId=<%=rs.getString("galeriID")%>"><i class="fa fa-edit">&nbsp;&nbsp;</i></a>
+
+
                                 </h5>
                             </div>  
 
-                                    <%}
+                            <%}
                                 } catch (Exception ex) {
                                 }
-                           %>
-                           
+                            %>
+
 
                         </div>
                     </div>
 
                     <div class="col-md-6">
 
-  <%
-                        if(!adi.equals(""))
-                        {
+                        <%
+                            if (!adi.equals("")) {
                         %>
                         <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">Galeriyi Düzenle</h4>
-                        </div>
-                        <div class="panel-body">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">Galeriyi Düzenle</h4>
+                            </div>
+                            <div class="panel-body">
 
 
-                            <form class="form-horizontal" action="galeriislemleri.jsp" method="post">
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <input type="text" name="galeriAdi" class="form-control" value="<%=adi %>">
+                                <form class="form-horizontal" action="galeriislemleri.jsp" method="post">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="text" name="galeriAdi" class="form-control" value="<%=adi%>">
+                                        </div>
                                     </div>
-                                </div>
                                     <input type="hidden" name="istek" value="galeriDuzenle"/>   
-                                    <input type="hidden" name="albumId" value="<%=request.getParameter("albumId") %>"/>   
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <input type="text" name="galeriAciklama" class="form-control" value="<%=aciklama %>">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-md-12">
-
-                                        <div class="radio">
-                                            <label><input type="radio" name="aktif" value="1" <% if(durum.equals("1")){ out.print("checked");} %>>Aktif</label>
-                                        </div>
-
-                                        <div class="radio">
-                                            <label><input type="radio" name="aktif" value="0"  <% if(durum.equals("0")){ out.print("checked");} %>>Pasif</label>
+                                    <input type="hidden" name="albumId" value="<%=request.getParameter("albumId")%>"/>   
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="text" name="galeriAciklama" class="form-control" value="<%=aciklama%>">
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    <div class="col-md-12">
-                                        <input type="submit" class="btn btn-primary" value="Galeriyi Düzenle">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+
+                                            <div class="radio">
+                                                          <label><input type="radio" name="aktif" value="1" <% if (durum.equals("1")) {
+                                                        out.print("checked");
+                                                    } %>>Aktif</label>
+                                            </div>
+
+                                            <div class="radio">
+                                                          <label><input type="radio" name="aktif" value="0"  <% if (durum.equals("0")) {
+                                                        out.print("checked");
+                                                    } %>>Pasif</label>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
 
-                            </form>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <input type="submit" class="btn btn-primary" value="Galeriyi Düzenle">
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
                         </div>
-                    </div>
                         <%
-                        }
+                            }
                         %>
                         <div class="panel panel-primary">
                             <div class="panel-heading">
@@ -159,8 +170,8 @@
                                 </form>
                             </div>
                         </div>
-                 
-                      
+
+
                     </div>
                 </div>
             </div>
