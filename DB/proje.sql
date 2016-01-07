@@ -1,20 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MYSQL
-Source Server Version : 50626
+Source Server         : mysql
+Source Server Version : 50616
 Source Host           : localhost:3306
 Source Database       : proje
 
 Target Server Type    : MYSQL
-Target Server Version : 50626
+Target Server Version : 50616
 File Encoding         : 65001
 
-<<<<<<< HEAD
-Date: 2016-01-07 09:25:32
-=======
-Date: 2016-01-07 09:23:59
->>>>>>> origin/master
+Date: 2016-01-07 09:55:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -100,6 +96,35 @@ CREATE TABLE `galeriler` (
 -- ----------------------------
 INSERT INTO `galeriler` VALUES ('36', 'utyu', 'utyut', '1', '2016-01-06');
 INSERT INTO `galeriler` VALUES ('38', 'Bursa', 'Bursa Tarhi', '0', '2016-01-06');
+
+-- ----------------------------
+-- Table structure for galeri_resimleri
+-- ----------------------------
+DROP TABLE IF EXISTS `galeri_resimleri`;
+CREATE TABLE `galeri_resimleri` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `urun_id` int(11) NOT NULL,
+  `adi` varchar(500) COLLATE utf8_bin NOT NULL,
+  `klasor` varchar(500) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of galeri_resimleri
+-- ----------------------------
+INSERT INTO `galeri_resimleri` VALUES ('56', '38', '38_61981491 (11).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('57', '38', '38_228373071 (12).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('52', '38', '38_119789981 (7).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('53', '38', '38_70375691 (8).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('54', '38', '38_152252781 (9).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('55', '38', '38_28058701 (10).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('50', '38', '38_133781321 (4).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('51', '38', '38_129495011 (6).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('49', '38', '38_294578501 (5).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('46', '38', '38_35839551 (1).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('47', '38', '38_114668491 (2).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('48', '38', '38_195333381 (3).jpg', '38');
+INSERT INTO `galeri_resimleri` VALUES ('58', '36', '36_131235821 (8).jpg', '36');
 
 -- ----------------------------
 -- Table structure for icerik

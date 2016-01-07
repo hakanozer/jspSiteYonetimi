@@ -64,15 +64,50 @@ public final class DB {
         return rs;
     }
 
-   public ResultSet dataGtr(String query) {
-        ResultSet rs = null;
+   
+    public Boolean galeriSil(String galeriID)
+    {
+        boolean sonuc=false;
         try {
-            rs = st.executeQuery(query);
+            sonuc=st.execute("DELETE FROM galeriler WHERE galeriID='"+galeriID+"'");
         } catch (Exception e) {
-            System.err.println("Data Getirme Hatası : " + e);
         }
-        return rs;
-    }  
+    
+    return sonuc;
+    }
+    
+    public Boolean fotografSil(String fotografID)
+    {
+        boolean sonuc=false;
+        try {
+            sonuc=st.execute("DELETE FROM urun_resimleri WHERE id='"+fotografID+"'");
+        } catch (Exception e) {
+        }
+    
+    return sonuc;
+    }
+    
+    public Boolean galeriDuzenle(String galeriID,String galeriAdi,String galeriAciklamasi,String galeriDurumu)
+    {
+        boolean sonuc=false;
+        try {
+            sonuc=st.execute("UPDATE galeriler SET galeriAdi='"+galeriAdi+"', galeriAciklamasi='"+galeriAciklamasi+"', galeriDurumu='"+galeriDurumu+"' WHERE galeriID='"+galeriID+"'");
+        } catch (Exception e) {
+        }
+    
+    return sonuc;
+    }
+    
+    public Boolean galeriEkle(String galeriAdi,String galeriAciklamasi,String galeriDurumu)
+    {
+        boolean sonuc=false;
+        try {
+            sonuc=st.execute("INSERT INTO galeriler VALUES(null,'"+galeriAdi+"','"+galeriAciklamasi+"','"+galeriDurumu+"',now())");
+        } catch (Exception e) {
+        }
+    
+    return sonuc;
+    }
     
     
    // md5 fonk 
