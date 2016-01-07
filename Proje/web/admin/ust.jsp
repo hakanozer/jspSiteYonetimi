@@ -302,6 +302,9 @@
 						<li>
                             <a href="icerikYonetimi.jsp"><i class="fa fa-list-alt fa-fw"></i> İçerik Yönetimi</a>
                         </li>
+                        			<li>
+			                            <a href="anketYonetimi.jsp"><i class="fa fa-adjust fa-fw"></i> Anket Y�netimi</a>
+                        </li>
                         
                         <li>
                             <a href="slayt.jsp"><i class="fa fa-list-alt fa-fw"></i> Slayt Kontrolü</a>
