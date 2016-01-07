@@ -43,15 +43,15 @@
                 <!-- /.panel-heading -->
 
                 <div class="panel-body">
-                   
-                
-                <form action="kargoEkle.jsp" method="post"> 
-                        <div class="col-md-5" style="padding-bottom: 15px"> 
-                            <input class="btn btn-success" style="float:right;" type="submit" name="kaydet" value="Kargo Ekle"/>
-                        </div>
-                    </form>
-           
+                         
                     <div class="dataTable_wrapper">
+					
+					<div class="form-group">
+                            <form action="kargoEkle.jsp" method="post"> 
+                                    <input class="btn btn-success" style="float:right; margin-bottom: 5px;" type="submit" name="kaydet" value="Kargo Ekle"/>
+                                
+                            </form>
+                        </div>
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
