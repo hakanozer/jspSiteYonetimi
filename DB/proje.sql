@@ -10,10 +10,31 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-06 23:17:04
+Date: 2016-01-07 09:25:32
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for adresler
+-- ----------------------------
+DROP TABLE IF EXISTS `adresler`;
+CREATE TABLE `adresler` (
+  `adresID` int(11) NOT NULL AUTO_INCREMENT,
+  `musteriID` int(11) DEFAULT NULL,
+  `adresBaslik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `adres` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `postaKodu` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ilce` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `il` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `tarih` datetime DEFAULT NULL,
+  PRIMARY KEY (`adresID`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of adresler
+-- ----------------------------
+INSERT INTO `adresler` VALUES ('4', '2', 'is', 'Cumhuriyet Mah. Nergis Sk. No:20/11', '34920', 'K.Cekmece', 'Istanbul', '2016-01-06 11:11:13');
 
 -- ----------------------------
 -- Table structure for begeniyonetim
@@ -140,6 +161,29 @@ CREATE TABLE `kullanici` (
 -- Records of kullanici
 -- ----------------------------
 INSERT INTO `kullanici` VALUES ('1', 'admin@admin.com', '827ccb0eea8a706c4c34a16891f84e7b', 'c4ca4238a0b923820dcc509a6f75849b', 'Ayşe', 'Bilmem', '2015-12-30 05:21:26');
+
+-- ----------------------------
+-- Table structure for musteriler
+-- ----------------------------
+DROP TABLE IF EXISTS `musteriler`;
+CREATE TABLE `musteriler` (
+  `musteriID` int(11) NOT NULL AUTO_INCREMENT,
+  `musteriAdi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `musteriSoyadi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `mail` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `sifre` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `telefon` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `ban` tinyint(5) DEFAULT NULL,
+  `tarih` datetime DEFAULT NULL,
+  PRIMARY KEY (`musteriID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of musteriler
+-- ----------------------------
+INSERT INTO `musteriler` VALUES ('2', 'Pinar', 'Ulku', 'pinar@pinar.com', null, '5555555', '0', '2016-01-06 11:05:36');
+INSERT INTO `musteriler` VALUES ('3', 'Asd', 'Fgh', 'asd@asd.com', null, '1234567', '0', '2016-01-06 11:22:39');
+INSERT INTO `musteriler` VALUES ('4', 'Ali', 'Bilmem', 'ali@ali.com', 'c6f057b86584942e415435ffb1fa93d4', '5555555', '0', '2016-01-06 13:07:53');
 
 -- ----------------------------
 -- Table structure for slayt

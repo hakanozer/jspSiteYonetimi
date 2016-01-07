@@ -296,6 +296,10 @@
                         </li>
 						
 						<li>
+                            <a href="musteriler.jsp"><i class="fa fa-users fa-fw"></i> Müşteriler</a>
+                        </li>
+						
+						<li>
                             <a href="icerikYonetimi.jsp"><i class="fa fa-list-alt fa-fw"></i> İçerik Yönetimi</a>
                         </li>
                         
