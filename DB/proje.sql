@@ -1,16 +1,20 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MySQL
-Source Server Version : 50505
+Source Server         : MYSQL
+Source Server Version : 50626
 Source Host           : localhost:3306
 Source Database       : proje
 
 Target Server Type    : MYSQL
-Target Server Version : 50505
+Target Server Version : 50626
 File Encoding         : 65001
 
+<<<<<<< HEAD
 Date: 2016-01-07 09:25:32
+=======
+Date: 2016-01-07 09:23:59
+>>>>>>> origin/master
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -96,6 +100,26 @@ CREATE TABLE `galeriler` (
 -- ----------------------------
 INSERT INTO `galeriler` VALUES ('36', 'utyu', 'utyut', '1', '2016-01-06');
 INSERT INTO `galeriler` VALUES ('38', 'Bursa', 'Bursa Tarhi', '0', '2016-01-06');
+
+-- ----------------------------
+-- Table structure for icerik
+-- ----------------------------
+DROP TABLE IF EXISTS `icerik`;
+CREATE TABLE `icerik` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `durum` tinyint(5) DEFAULT NULL,
+  `baslik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kisaAciklama` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `detay` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `tarih` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of icerik
+-- ----------------------------
+INSERT INTO `icerik` VALUES ('1', '1', 'sdafa', 'AWFD', 'SADGV', '2016-01-19 09:20:56');
+INSERT INTO `icerik` VALUES ('2', '0', 'sfgsa', 'AFDWD', '<p>WAEFWQRT</p>\r\n', '2016-01-07 09:23:12');
 
 -- ----------------------------
 -- Table structure for kargo
