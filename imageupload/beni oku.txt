@@ -1,0 +1,4 @@
+"resim_id" parametresi yanýnda "album" isminde bir parametre bekliyor.
+bu parametre hangi alanda çalýþýyorsanýz onun ismi olabilir.
+Ben galeri alanýnda çalýþýyorum, album=galeri oluyor. (isterseniz kendi isminizi de yazabilirsiniz(tercih edilmez))
+görselleri çaðýrýrken WHERE den sonra album=galeri(çalýþtýðýnýz alan) ifadesini yazarsanýz sizinle ilgili alanlar gelecektir.
