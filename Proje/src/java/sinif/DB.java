@@ -80,7 +80,7 @@ public final class DB {
     {
         boolean sonuc=false;
         try {
-            sonuc=st.execute("DELETE FROM urun_resimleri WHERE id='"+fotografID+"'");
+            sonuc=st.execute("DELETE FROM galeri_resimleri WHERE id='"+fotografID+"'");
         } catch (Exception e) {
         }
     
