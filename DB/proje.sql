@@ -329,3 +329,67 @@ INSERT INTO `urun_resimleri` VALUES ('18', '4', '4_3092407Koala.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('19', '4', '4_21216073Penguins.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('20', '5', '5_17674658Desert.jpg', '5');
 INSERT INTO `urun_resimleri` VALUES ('21', '5', '5_22817309Chrysanthemum.jpg', '5');
+
+--
+-- Tablo için tablo yapısı `secenekler`
+--
+
+CREATE TABLE IF NOT EXISTS `secenekler` (
+  `secenek_id` int(11) NOT NULL,
+  `secenek` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `anket_id` int(11) NOT NULL,
+  `oy` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `secenekler`
+--
+
+INSERT INTO `secenekler` (`secenek_id`, `secenek`, `anket_id`, `oy`) VALUES
+(9, 'Oldu', 3, 0),
+(20, 'g', 16, 0),
+(21, 'f', 16, 0),
+(22, 'Oldu', 12, 0),
+(23, 'tttt', 11, 0),
+(24, 'Olustu', 17, 0),
+(25, 'Olusmadi', 17, 0),
+(26, 'aaaa', 18, 0);
+
+-- --------------------------------------------------------
+--
+-- Tablo için tablo yapısı `anket`
+--
+
+CREATE TABLE IF NOT EXISTS `anket` (
+  `anket_id` int(11) NOT NULL,
+  `durum` tinyint(1) NOT NULL,
+  `oy` int(11) NOT NULL,
+  `tarih` date NOT NULL,
+  `title` varchar(255) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+--
+-- Tablo döküm verisi `anket`
+--
+
+INSERT INTO `anket` (`anket_id`, `durum`, `oy`, `tarih`, `title`) VALUES
+(3, 1, 0, '2016-01-07', 'Oldu mu'),
+(4, 1, 0, '2016-01-07', 'asdasda'),
+(5, 1, 0, '2016-01-07', 'asdasda'),
+(6, 1, 0, '2016-01-07', 'Deneme'),
+(7, 1, 0, '2016-01-07', 'heyy'),
+(10, 1, 0, '2016-01-07', 'asa'),
+(11, 1, 0, '2016-01-07', 'tatatattttttt'),
+(12, 1, 0, '2016-01-07', 'Guncelleme Oldu Mu'),
+(13, 1, 0, '2016-01-07', 'Oldumuki?'),
+(14, 1, 0, '2016-01-07', 'asddddd'),
+(15, 1, 0, '2016-01-07', 'sdsdsf'),
+(16, 1, 0, '2016-01-07', 'gdfggd'),
+(17, 1, 0, '2016-01-07', 'Anket Kaydi'),
+(18, 1, 0, '2016-01-07', 'Denemedi Demem');
+
+-- --------------------------------------------------------
+
+
+
+
