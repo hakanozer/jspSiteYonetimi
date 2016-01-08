@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : mysql
-Source Server Version : 50616
+Source Server         : MYSQL
+Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : proje
 
 Target Server Type    : MYSQL
-Target Server Version : 50616
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-07 09:55:16
+Date: 2016-01-08 13:10:59
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -35,6 +35,36 @@ CREATE TABLE `adresler` (
 -- Records of adresler
 -- ----------------------------
 INSERT INTO `adresler` VALUES ('4', '2', 'is', 'Cumhuriyet Mah. Nergis Sk. No:20/11', '34920', 'K.Cekmece', 'Istanbul', '2016-01-06 11:11:13');
+
+-- ----------------------------
+-- Table structure for anket
+-- ----------------------------
+DROP TABLE IF EXISTS `anket`;
+CREATE TABLE `anket` (
+  `anket_id` int(11) NOT NULL,
+  `durum` tinyint(1) NOT NULL,
+  `oy` int(11) NOT NULL,
+  `tarih` date NOT NULL,
+  `title` varchar(255) COLLATE utf8_turkish_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of anket
+-- ----------------------------
+INSERT INTO `anket` VALUES ('3', '1', '0', '2016-01-07', 'Oldu mu');
+INSERT INTO `anket` VALUES ('4', '1', '0', '2016-01-07', 'asdasda');
+INSERT INTO `anket` VALUES ('5', '1', '0', '2016-01-07', 'asdasda');
+INSERT INTO `anket` VALUES ('6', '1', '0', '2016-01-07', 'Deneme');
+INSERT INTO `anket` VALUES ('7', '1', '0', '2016-01-07', 'heyy');
+INSERT INTO `anket` VALUES ('10', '1', '0', '2016-01-07', 'asa');
+INSERT INTO `anket` VALUES ('11', '1', '0', '2016-01-07', 'tatatattttttt');
+INSERT INTO `anket` VALUES ('12', '1', '0', '2016-01-07', 'Guncelleme Oldu Mu');
+INSERT INTO `anket` VALUES ('13', '1', '0', '2016-01-07', 'Oldumuki?');
+INSERT INTO `anket` VALUES ('14', '1', '0', '2016-01-07', 'asddddd');
+INSERT INTO `anket` VALUES ('15', '1', '0', '2016-01-07', 'sdsdsf');
+INSERT INTO `anket` VALUES ('16', '1', '0', '2016-01-07', 'gdfggd');
+INSERT INTO `anket` VALUES ('17', '1', '0', '2016-01-07', 'Anket Kaydi');
+INSERT INTO `anket` VALUES ('18', '1', '0', '2016-01-07', 'Denemedi Demem');
 
 -- ----------------------------
 -- Table structure for begeniyonetim
@@ -235,6 +265,56 @@ INSERT INTO `musteriler` VALUES ('3', 'Asd', 'Fgh', 'asd@asd.com', null, '123456
 INSERT INTO `musteriler` VALUES ('4', 'Ali', 'Bilmem', 'ali@ali.com', 'c6f057b86584942e415435ffb1fa93d4', '5555555', '0', '2016-01-06 13:07:53');
 
 -- ----------------------------
+-- Table structure for reklamlar
+-- ----------------------------
+DROP TABLE IF EXISTS `reklamlar`;
+CREATE TABLE `reklamlar` (
+  `reklam_id` int(11) NOT NULL AUTO_INCREMENT,
+  `reklam_adi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `reklam_aciklama` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `kalan_gosterim` int(11) DEFAULT NULL,
+  `yukseklik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `genislik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `konum` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`reklam_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of reklamlar
+-- ----------------------------
+INSERT INTO `reklamlar` VALUES ('7', 'çakma iphone', 'sonysityu', '45', '56', '44', '6');
+INSERT INTO `reklamlar` VALUES ('10', 'sony', 'sonysityu', '45', '56', '77', '6');
+INSERT INTO `reklamlar` VALUES ('12', 'çakma nokya', 'çok ucuz', '44', '400', '500', '7');
+INSERT INTO `reklamlar` VALUES ('14', 'aypon', 'qwrqw', '44', '22', '11', '5');
+INSERT INTO `reklamlar` VALUES ('15', 'asfna ', 'ads dkl', '111', 'dasd', 'qwd', '5');
+INSERT INTO `reklamlar` VALUES ('16', 'vestel', 'vestel', '44', '34', '43', '5');
+INSERT INTO `reklamlar` VALUES ('17', 'citroen', 'efendim abi !', '21', '333', '242', '5');
+INSERT INTO `reklamlar` VALUES ('18', 'ads', 'asdwq', '11', 'd21', 'dw', '3');
+
+-- ----------------------------
+-- Table structure for secenekler
+-- ----------------------------
+DROP TABLE IF EXISTS `secenekler`;
+CREATE TABLE `secenekler` (
+  `secenek_id` int(11) NOT NULL,
+  `secenek` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
+  `anket_id` int(11) NOT NULL,
+  `oy` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of secenekler
+-- ----------------------------
+INSERT INTO `secenekler` VALUES ('9', 'Oldu', '3', '0');
+INSERT INTO `secenekler` VALUES ('20', 'g', '16', '0');
+INSERT INTO `secenekler` VALUES ('21', 'f', '16', '0');
+INSERT INTO `secenekler` VALUES ('22', 'Oldu', '12', '0');
+INSERT INTO `secenekler` VALUES ('23', 'tttt', '11', '0');
+INSERT INTO `secenekler` VALUES ('24', 'Olustu', '17', '0');
+INSERT INTO `secenekler` VALUES ('25', 'Olusmadi', '17', '0');
+INSERT INTO `secenekler` VALUES ('26', 'aaaa', '18', '0');
+
+-- ----------------------------
 -- Table structure for slayt
 -- ----------------------------
 DROP TABLE IF EXISTS `slayt`;
@@ -283,6 +363,24 @@ INSERT INTO `slayt_resimleri` VALUES ('11', '11', '11_16187572resim3.jpg', '11')
 INSERT INTO `slayt_resimleri` VALUES ('12', '12', '12_1526785504.jpg', '12');
 
 -- ----------------------------
+-- Table structure for ureticiler
+-- ----------------------------
+DROP TABLE IF EXISTS `ureticiler`;
+CREATE TABLE `ureticiler` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `uretici_adi` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `tarih` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of ureticiler
+-- ----------------------------
+INSERT INTO `ureticiler` VALUES ('2', 'sony', '2016-01-20 07:05:26');
+INSERT INTO `ureticiler` VALUES ('5', 'samsung', '2016-01-07 21:07:41');
+INSERT INTO `ureticiler` VALUES ('9', 'lenovo', '2016-01-07 21:40:12');
+
+-- ----------------------------
 -- Table structure for urunler
 -- ----------------------------
 DROP TABLE IF EXISTS `urunler`;
@@ -310,6 +408,31 @@ INSERT INTO `urunler` VALUES ('4', '45', 'sadfsdf', 'sdfs', '0', '0', '0', '<p s
 INSERT INTO `urunler` VALUES ('5', '1', 'televizyon', 'tele aç?klama', '0', '0', '0', '<p>televizyon</p>\r\n', '3100', '2999', '0', '2016-01-05 10:32:42');
 
 -- ----------------------------
+-- Table structure for urun_fotograflari
+-- ----------------------------
+DROP TABLE IF EXISTS `urun_fotograflari`;
+CREATE TABLE `urun_fotograflari` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `urun_id` int(11) NOT NULL,
+  `adi` varchar(500) COLLATE utf8_bin DEFAULT NULL,
+  `klasor` varchar(500) COLLATE utf8_bin DEFAULT NULL,
+  `album_adi` varchar(255) COLLATE utf8_bin DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=180 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+-- ----------------------------
+-- Records of urun_fotograflari
+-- ----------------------------
+INSERT INTO `urun_fotograflari` VALUES ('177', '7', '7_25496995fwfwfwe.jpg', 'reklam_7', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('179', '17', '17_143829181849_1110120095665443_5667148853601179176_n.jpg', 'reklam_17', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('171', '7', '7_234438831849_1110120095665443_5667148853601179176_n.jpg', 'reklam_7', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('172', '10', '10_11217067ffwfe.jpg', 'reklam_10', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('173', '12', '12_38752fwfwfwe.jpg', 'reklam_12', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('178', '14', '14_21901682fwefwe.jpg', 'reklam_14', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('175', '15', '15_6554411fwfwfwe.jpg', 'reklam_15', 'reklam');
+INSERT INTO `urun_fotograflari` VALUES ('176', '16', '16_17993050imagdwdwes.jpg', 'reklam_16', 'reklam');
+
+-- ----------------------------
 -- Table structure for urun_resimleri
 -- ----------------------------
 DROP TABLE IF EXISTS `urun_resimleri`;
@@ -329,67 +452,3 @@ INSERT INTO `urun_resimleri` VALUES ('18', '4', '4_3092407Koala.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('19', '4', '4_21216073Penguins.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('20', '5', '5_17674658Desert.jpg', '5');
 INSERT INTO `urun_resimleri` VALUES ('21', '5', '5_22817309Chrysanthemum.jpg', '5');
-
---
--- Tablo için tablo yapısı `secenekler`
---
-
-CREATE TABLE IF NOT EXISTS `secenekler` (
-  `secenek_id` int(11) NOT NULL,
-  `secenek` varchar(255) COLLATE utf8_turkish_ci NOT NULL,
-  `anket_id` int(11) NOT NULL,
-  `oy` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `secenekler`
---
-
-INSERT INTO `secenekler` (`secenek_id`, `secenek`, `anket_id`, `oy`) VALUES
-(9, 'Oldu', 3, 0),
-(20, 'g', 16, 0),
-(21, 'f', 16, 0),
-(22, 'Oldu', 12, 0),
-(23, 'tttt', 11, 0),
-(24, 'Olustu', 17, 0),
-(25, 'Olusmadi', 17, 0),
-(26, 'aaaa', 18, 0);
-
--- --------------------------------------------------------
---
--- Tablo için tablo yapısı `anket`
---
-
-CREATE TABLE IF NOT EXISTS `anket` (
-  `anket_id` int(11) NOT NULL,
-  `durum` tinyint(1) NOT NULL,
-  `oy` int(11) NOT NULL,
-  `tarih` date NOT NULL,
-  `title` varchar(255) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `anket`
---
-
-INSERT INTO `anket` (`anket_id`, `durum`, `oy`, `tarih`, `title`) VALUES
-(3, 1, 0, '2016-01-07', 'Oldu mu'),
-(4, 1, 0, '2016-01-07', 'asdasda'),
-(5, 1, 0, '2016-01-07', 'asdasda'),
-(6, 1, 0, '2016-01-07', 'Deneme'),
-(7, 1, 0, '2016-01-07', 'heyy'),
-(10, 1, 0, '2016-01-07', 'asa'),
-(11, 1, 0, '2016-01-07', 'tatatattttttt'),
-(12, 1, 0, '2016-01-07', 'Guncelleme Oldu Mu'),
-(13, 1, 0, '2016-01-07', 'Oldumuki?'),
-(14, 1, 0, '2016-01-07', 'asddddd'),
-(15, 1, 0, '2016-01-07', 'sdsdsf'),
-(16, 1, 0, '2016-01-07', 'gdfggd'),
-(17, 1, 0, '2016-01-07', 'Anket Kaydi'),
-(18, 1, 0, '2016-01-07', 'Denemedi Demem');
-
--- --------------------------------------------------------
-
-
-
-

@@ -57,7 +57,7 @@ public final class DB {
     public ResultSet data(String tableName) {
         ResultSet rs = null;
         try {
-            rs = st.executeQuery("select *from " + tableName);
+            rs = st.executeQuery("select * from " + tableName);
         } catch (Exception e) {
             System.err.println("Data Getirme Hatası : " + e);
         }
@@ -108,7 +108,33 @@ public final class DB {
     
     return sonuc;
     }
+     public boolean reklamEkle(String ad,String aciklama,String gosterim,String yukseklik,String genislik,String konum){
+        boolean sonuc =false;
+        try {
+            sonuc=st.execute("insert into reklamlar values (null,'"+ad+"','"+aciklama+"','"+gosterim+"','"+yukseklik+"','"+genislik+"','"+konum+"')");
+        } catch (Exception e) {
+        }
+        return sonuc;
+    }
     
+     public boolean reklamDuzenle(String id,String ad,String aciklama,String gosterim,String yukseklik,String genislik,String konum){
+        boolean sonuc =false;
+         try {
+                     sonuc=st.execute("update reklamlar set reklam_adi='"+ad+"',reklam_aciklama='"+aciklama+"',kalan_gosterim='"+gosterim+"',yukseklik='"+yukseklik+"',genislik='"+genislik+"',konum='"+konum+"' where reklam_id="+id);
+
+         } catch (Exception e) {
+         }
+        return sonuc;
+    }
+     
+      public boolean reklamSil(String id){
+        boolean sonuc =false;
+          try {
+              sonuc =st.execute("delete from reklamlar where reklam_id="+id);
+          } catch (Exception e) {
+          }
+        return sonuc;
+    }
     
    // md5 fonk 
    public String MD5(String md5) {
