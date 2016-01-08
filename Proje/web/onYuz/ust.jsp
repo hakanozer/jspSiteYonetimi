@@ -815,9 +815,77 @@ background-color: inherit;
                         </div>
                     </a>
                     <ul class="tab-content content dropdown-menu pull-right shoppingcart-box" role="menu">
+                        <%-- Eğer alışveiriş yapılmamışsa AHMET --%>
                         <li>
                             <p class="text-center">Your shopping cart is empty!</p>
                         </li>
+                        
+                   
+                         <%-- //Eğer alışveiriş yapılmışsa  --%>
+                        <li>
+    <table class="table table-striped">
+        <tbody>
+            <tr>
+                <td class="text-center" width="70px">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=57"><img src="http://opencart.magentech.com/themes/so_market/layout4/image/cache/catalog/product/m1-74x74.jpg" alt="Cisi Chicken" title="Cisi Chicken" class="preview"></a>
+                </td>
+                <td class="text-left"><a class="cart_product_name" href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=57">Cisi Chicken</a></td>
+                <td class="text-center"> x1 </td>
+                <td class="text-center"> $59.00 </td>
+                <td class="text-right">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=57" class="fa fa-edit"></a>
+                </td>
+                <td class="text-right">
+                    <a onclick="cart.remove('802');" class="fa fa-times fa-delete"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" width="70px">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=52"><img src="http://opencart.magentech.com/themes/so_market/layout4/image/cache/catalog/product/W1-74x74.jpg" alt="Dail Lulpa" title="Dail Lulpa" class="preview"></a>
+                </td>
+                <td class="text-left"><a class="cart_product_name" href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=52">Dail Lulpa</a></td>
+                <td class="text-center"> x1 </td>
+                <td class="text-center"> $78.00 </td>
+                <td class="text-right">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=52" class="fa fa-edit"></a>
+                </td>
+                <td class="text-right">
+                    <a onclick="cart.remove('803');" class="fa fa-times fa-delete"></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-center" width="70px">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=48"><img src="http://opencart.magentech.com/themes/so_market/layout4/image/cache/catalog/product/B10-74x74.jpg" alt="Cupim Bris" title="Cupim Bris" class="preview"></a>
+                </td>
+                <td class="text-left"><a class="cart_product_name" href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=48">Cupim Bris</a></td>
+                <td class="text-center"> x1 </td>
+                <td class="text-center"> $40.00 </td>
+                <td class="text-right">
+                    <a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/product&amp;product_id=48" class="fa fa-edit"></a>
+                </td>
+                <td class="text-right">
+                    <a onclick="cart.remove('801');" class="fa fa-times fa-delete"></a>
+                </td>
+            </tr>
+        </tbody>
+    <</table>
+                        </li>
+                         <%--  ürünler sonu     --%>
+                         <div>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <td class="text-left"><strong>Sub-Total</strong></td>
+                <td class="text-right">$177.00</td>
+            </tr>
+            <tr>
+                <td class="text-left"><strong>Total</strong></td>
+                <td class="text-right">$177.00</td>
+            </tr>
+        </tbody>
+    </table>
+   <p class="text-right"><a class="btn view-cart" href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=checkout/cart"><i class="fa fa-shopping-cart"></i>View Cart</a>&nbsp;&nbsp;&nbsp; <a class="btn btn-mega checkout-cart" href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=checkout/checkout"><i class="fa fa-share"></i>Checkout</a></p>
+</div>
                     </ul>
                 </div>
                 <!--//cart-->

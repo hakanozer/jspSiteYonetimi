@@ -2,92 +2,99 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <title>Kayıt Ol</title>
 <%@include file="ust.jsp" %>
-<%   
-    boolean hataKontrolu = (request.getParameter("hata") != null);
-    
-%>
+
+
+                <%    
+                    boolean kayitDenetim = (request.getParameter("basarili") != null);
+                    if (kayitDenetim) {%>
+                <div class="alert alert-success" style="margin-left: 11%;width: 79%;margin-bottom: auto;margin-top: 20;font-weight: bold;">
+                    <button type="button" name="close" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    Başarıyla Kaydınız Tamamlanmıştır !
+                    <a href="index.jsp" style="text-decoration: underline;">Anasayfaya Dön</a>
+                    <%
+                        boolean alertKapa = (request.getParameter("close") != null);
+                        if (alertKapa) {
+                            out.print("<script>window.location.href = 'kayit.jsp';</script>");
+                        }}
+                    %>
+                </div>
+
+                <%
+                    boolean kayitHataDenetim = (request.getParameter("insert") != null);
+                    if (kayitHataDenetim) {%>
+                <div class="alert alert-danger alert-dismissable" style="margin-left: 11%;;width: 79%;margin-bottom: auto;margin-top: 20;font-weight: bold;">
+                    <button type="button" name="close" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    Kaydınız Yapılamamıştır !
+                    <a href="index.jsp" style="text-decoration: underline;">Anasayfaya Dön</a>
+                    <%
+                            boolean alertKapa = (request.getParameter("close") != null);
+                            if (alertKapa) {
+                                out.print("<script>window.location.href = 'kayit.jsp';</script>");
+                            }
+                        %>
+                    </div>
+                    
+                    <%}%>
+                    
 <div class="container">
    
+                    
     <div class="row">
         <div id="content" class="col-sm-12">
             <h1>Kayıt Ol</h1>
             <p>Eğer daha önce kayıt oluysanız bu linke tıklayınız  <a href="giris.jsp">giriş</a>.</p>
             <form action="kayitYap.jsp" method="post"  class="form-horizontal account-register">
-                <fieldset id="account">
-                 
-                            
+
+                      <fieldset id="account">        
                     <legend>Kişisel Bilgileriniz</legend>
                     <div class="form-group required" style="display: none;">
                         <label class="col-sm-2 control-label">Müşteri</label>
                         <div class="col-sm-10">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="customer_group_id" value="1" checked="checked"> Default</label>
-                            </div>
+                       
                         </div>
                     </div>
                  
                     <div class="form-group required ">
                         <label class="col-sm-2 control-label" for="input-firstname">Adınız<i style="color: red;" >*</i></label>
                         <div class="col-sm-10">
-                            <input type="text" name="adi" value="" placeholder="Adınızı Giriniz..." id="input-firstname" class="form-control" required >
+                            <input type="text" name="adi" value="<% if(request.getParameter("adi")!=null){ out.print(request.getParameter("adi")); }%>" placeholder="Adınızı Giriniz..." id="input-firstname" class="form-control" required >
                         </div>
                     </div>
-                    <%
-                                if (hataKontrolu) {
 
-                            %>
-                            <div class="text-danger">Şifre Tekrarı Hatalı!</div>
-                            <%}%>
-                    
 
 
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-lastname">Soyadınız <i style="color: red;" >*</i></label>
                         <div class="col-sm-10">
-                            <input type="text" name="soyadi" value="" placeholder="Soyadınızı Giriniz..." id="input-lastname" class="form-control" required>
+                            <input type="text" name="soyadi" value="<% if(request.getParameter("soyadi")!=null){ out.print(request.getParameter("soyadi")); }%>" placeholder="Soyadınızı Giriniz..." id="input-lastname" class="form-control" required >
                         </div>
                     </div>
-                            <%
-                                if (hataKontrolu) {
-
-                            %>
-                            <div class="text-danger">Şifre Tekrarı Hatalı!</div>
-                            <%}%>
+                           
                             
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-email">E-Mail<i style="color: red;" >*</i></label>
                         <div class="col-sm-10">
-                            <input type="email" name="email" value="" placeholder="E-Mail'inizi Giriniz..." id="input-email" class="form-control" required>
+                            <input type="email" name="email" value="<% if(request.getParameter("mail")!=null){ out.print(request.getParameter("mail")); }%>" placeholder="E-Mail'inizi Giriniz..." id="input-email" class="form-control" required>
                         </div>
                     </div>
-                            <%
-                                if (hataKontrolu) {
-
-                            %>
-                            <div class="text-danger">Şifre Tekrarı Hatalı!</div>
-                            <%}%>
+                          
                             
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-telephone">Telefon Numarası</label>
                         <div class="col-sm-10">
-                            <input type="tel" name="telefon" value="" placeholder="Telefon numaranızı Giriniz..." id="input-telephone" class="form-control">
+                            <input type="tel" name="telefon" value="<% if(request.getParameter("telefon")!=null){ out.print(request.getParameter("telefon")); }%>"  placeholder="Telefon numaranızı Giriniz..." id="input-telephone" class="form-control">
                         </div>
                     </div>
                     
                 </fieldset>
+                            <%--
                 <fieldset id="address">
                     <legend>Adres Bilgileri</legend>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-company">Şirket</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="sirket" value="" placeholder="Şirket Adresinizi Giriniz..." id="input-company" class="form-control">
-                        </div>
-                    </div>
+                    
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-address-1">Adres 1<i style="color: red;" >*</i> </label>
+                        <label class="col-sm-2 control-label" for="input-address-1">Adres<i style="color: red;" >*</i> </label>
                         <div class="col-sm-10">
-                            <input type="text" name="adres-1" value="" placeholder="Adres 1" id="input-address-1" class="form-control" required>
+                            <input type="text" name="adres" value="" placeholder="Adres 1" id="input-address-1" class="form-control" >
                         </div>
                     </div>
                     <%
@@ -97,16 +104,11 @@
                             <div class="text-danger">Şifre Tekrarı Hatalı!</div>
                             <%}%>
                     
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="input-address-2">Adres 2</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="adres-2" value="" placeholder="Adres 2" id="input-address-2" class="form-control">
-                        </div>
-                    </div>
+                  
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-city">İlçe<i style="color: red;" >*</i> </label>
                         <div class="col-sm-10">
-                            <input type="text" name="ilce" value="" placeholder="İlçe" id="input-city" class="form-control" required>
+                            <input type="text" name="ilce" value="" placeholder="İlçe" id="input-city" class="form-control" >
                         </div>
                     </div>
                              <%
@@ -117,9 +119,9 @@
                             <%}%>
                             
                     <div class="form-group required">
-                        <label class="col-sm-2 control-label" for="input-postcode">Posta Kodu <i style="color: red;" >*</i></label>
+                        <label class="col-sm-2 control-label" for="input-postcode">Posta Kodu </label>
                         <div class="col-sm-10">
-                            <input type="text" name="postaKodu" value="" placeholder="Posta Kodu" id="input-postcode" class="form-control" required>
+                            <input type="text" name="postaKodu" value="" placeholder="Posta Kodu" id="input-postcode" class="form-control" >
                         </div>
                     </div>
                              <%
@@ -219,14 +221,23 @@
                             </select>
                         </div>
                     </div>
-                   
+                            
+                  
                 </fieldset>
+                            --%>
                 <fieldset>
                     <legend>Şifre</legend>
                     <div class="form-group required">
                         <label class="col-sm-2 control-label" for="input-password">Şifre<i style="color: red;" >*</i></label>
                         <div class="col-sm-10">
                             <input type="password" name="sifre" value="" placeholder="Şifrenizi Giriniz..." id="input-password" class="form-control" required>
+                            <%
+                                boolean sifreKontrol = (request.getParameter("sifreKisa") != null);
+                                if (sifreKontrol) {
+                                 
+                            %>
+                            <div class="text-danger" style="color:white;">Şifreniz en az 5 karakter en çok 15 karakter içermelidir!</div>
+                            <%}%>
                         </div>
                     </div>
                     <div class="form-group required">
@@ -234,10 +245,11 @@
                         <div class="col-sm-10">
                             <input type="password" name="sifreTekrar" value="" placeholder="Şifrenizi Tekrar Giriniz..." id="input-confirm" class="form-control" required>
                             <%
+                                boolean hataKontrolu = (request.getParameter("hata") != null);
                                 if (hataKontrolu) {
-
+                                 
                             %>
-                            <div class="text-danger">Şifre Tekrarı Hatalı!</div>
+                            <div class="text-danger" style="color:white;">Şifre Tekrarı Hatalı!</div>
                             <%}%>
                         </div>
                     </div>

@@ -16,18 +16,16 @@
                 session.setAttribute("ID", c.getValue());
                 break;
             }
-            if(c.getName().equals("Adi")){
-                String encoded = Base64.encodeBase64String(c.getValue().getBytes());
-                adi = new String(Base64.decodeBase64(c.getValue()));
-    
-            }
-           if(c.getName().equals("Soyadi")){
-                String encoded = Base64.encodeBase64String(c.getValue().getBytes());
-                soyadi = new String(Base64.decodeBase64(c.getValue()));
-    
-            }
+            
         }
-     session.setAttribute("musterininAdi", adi +" "+soyadi);
+       boolean oturumAcik = (session.getAttribute("musteriAdi") != null);
+       if(oturumAcik){
+     adi = new String(Base64.decodeBase64(session.getAttribute("musteriAdi").toString()));
+     soyadi = new String(Base64.decodeBase64(session.getAttribute("musteriSoyadi").toString()));
+    
+     session.setAttribute("musterininAdi" ,adi +" "+soyadi);
+     
+       }
      
    
 %>

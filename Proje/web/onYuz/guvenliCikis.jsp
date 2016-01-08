@@ -1,6 +1,7 @@
 <%
     
-    session.removeAttribute("musterininAdi");
+    session.invalidate();
+    
     Cookie cerez = new Cookie("musteriID","");
     cerez.setMaxAge(0);
     response.addCookie(cerez);
