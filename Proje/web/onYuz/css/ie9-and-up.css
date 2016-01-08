@@ -1,0 +1,14 @@
+/*----------------------------------
+*  -----------Target IE 9 and HIGHER -----------------
+*---------------------------*/
+/*******************************************************
+  Style Color
+********************************************************/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #yt_header_right {
+    padding-right: 13px; }
+
+  .module .so-deal .extraslider-inner .product-thumb {
+    padding-right: 2px; } }
+
+/*# sourceMappingURL=ie9-and-up.css.map */
