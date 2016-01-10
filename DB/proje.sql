@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-08 13:10:59
+Date: 2016-01-10 15:04:56
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -157,6 +157,21 @@ INSERT INTO `galeri_resimleri` VALUES ('48', '38', '38_195333381 (3).jpg', '38')
 INSERT INTO `galeri_resimleri` VALUES ('58', '36', '36_131235821 (8).jpg', '36');
 
 -- ----------------------------
+-- Table structure for havale
+-- ----------------------------
+DROP TABLE IF EXISTS `havale`;
+CREATE TABLE `havale` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `info` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of havale
+-- ----------------------------
+INSERT INTO `havale` VALUES ('1', '<p>asddd</p>\r\n');
+
+-- ----------------------------
 -- Table structure for icerik
 -- ----------------------------
 DROP TABLE IF EXISTS `icerik`;
@@ -168,13 +183,14 @@ CREATE TABLE `icerik` (
   `detay` varchar(500) COLLATE utf8_turkish_ci DEFAULT NULL,
   `tarih` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- ----------------------------
 -- Records of icerik
 -- ----------------------------
-INSERT INTO `icerik` VALUES ('1', '1', 'sdafa', 'AWFD', 'SADGV', '2016-01-19 09:20:56');
-INSERT INTO `icerik` VALUES ('2', '0', 'sfgsa', 'AFDWD', '<p>WAEFWQRT</p>\r\n', '2016-01-07 09:23:12');
+INSERT INTO `icerik` VALUES ('1', '1', 'Hakkimizda', 'hakkımızda', 'SADGV', '2016-01-19 09:20:56');
+INSERT INTO `icerik` VALUES ('2', '1', 'Sorular', 'AFDWD', '<p>WAEFWQRT</p>\r\n', '2016-01-07 09:23:12');
+INSERT INTO `icerik` VALUES ('3', '1', 'Kosullar', 'asd', 'ad', '2016-01-07 14:40:02');
 
 -- ----------------------------
 -- Table structure for kargo
