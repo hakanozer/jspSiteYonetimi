@@ -30,12 +30,9 @@
 %>
 <%@page import="sinif.DB" %>
 <% DB db = new DB(); %>
-<% String urunResimUrl = "http://localhost:8082/resim/"; %>
-<% String urunResimFile = "http://localhost:8082/resim/server/php/files/";%>
-<% String sliderResimUrl = "http://localhost:8082/slideResim/"; %>
-<% String sliderResimFile = "http://localhost:8082/slideResim/server/php/files/"; %>
-<% String geleriResimUrl = "http://localhost:8082/galeriResimleri/"; %>
-<% String galeriResimFile = "http://localhost:8082/galeriResimleri/server/php/files/"; %>
+<% String urunResimUrl = "http://localhost/imageupload/"; %>
+<% String urunResimFile = "http://localhost/imageupload/server/php/files/";%>
+
 
 
 <!--${cookie["adminData"].value}!-->

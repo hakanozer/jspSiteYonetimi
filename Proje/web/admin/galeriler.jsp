@@ -45,9 +45,9 @@
                                     <a href="galeriview.jsp?albumId=<%=rs.getString("galeriID")%>">
                                         <%
                                             if (rs.getString("adi") != null) {%>
-                                        <img src="<% out.print(galeriResimFile + rs.getString("galeriID") + "/" + rs.getString("adi"));%>" class="full" alt="<%=rs.getString("galeriAciklamasi")%>"></a>
+                                        <img src="<% out.print(urunResimFile + rs.getString("galeriID") + "/" + rs.getString("adi"));%>" class="full" alt="<%=rs.getString("galeriAciklamasi")%>"></a>
                                         <%} else {%>
-                                    <img src="<% out.print(galeriResimFile + "noimage.jpg");%>" class="full" alt=""></a> 
+                                    <img src="<% out.print(urunResimFile + "noimage.jpg");%>" class="full" alt=""></a> 
                                     <%}%>
 
                                     <a href="galeriview.jsp?albumId=<%=rs.getString("galeriID")%>">
@@ -105,14 +105,14 @@
 
                                             <div class="radio">
                                                           <label><input type="radio" name="aktif" value="1" <% if (durum.equals("1")) {
-                                                        out.print("checked");
-                                                    } %>>Aktif</label>
+                                                                  out.print("checked");
+                                                              } %>>Aktif</label>
                                             </div>
 
                                             <div class="radio">
                                                           <label><input type="radio" name="aktif" value="0"  <% if (durum.equals("0")) {
-                                                        out.print("checked");
-                                                    } %>>Pasif</label>
+                                                                  out.print("checked");
+                                                              } %>>Pasif</label>
                                             </div>
                                         </div>
                                     </div>

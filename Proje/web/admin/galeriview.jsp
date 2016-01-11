@@ -10,7 +10,7 @@
             <h1 class="page-header">Fotoğraf Ekle - Sil</h1>
         </div>
 
- <iframe src="<%=geleriResimUrl%>index.php?resim_id=<%=request.getParameter("albumId")%>" frameborder="0" scrolling="yes" style="height:100%; width:95%;"></iframe>
+ <iframe src="<%=urunResimUrl%>index.php?resim_id=<%=request.getParameter("albumId")%>" frameborder="0" scrolling="yes" style="height:100%; width:95%;"></iframe>
  
     </div>
 

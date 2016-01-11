@@ -1,7 +1,11 @@
+
+<%@page import="java.sql.ResultSet"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link href="css/cpanel.css" rel="stylesheet" type="text/css"/>
 <script src="js/cpanel.js" type="text/javascript"></script>
 <script src="js/js_defer.js" type="text/javascript"></script>
+<%@page import="sinif.DB"%>
+<% DB dba = new DB();  %>
 
 
 <footer class="footer-container">
@@ -22,6 +26,11 @@
                                     <a href="kosullar.jsp">Kullanım Koşulları</a>
                                 </li>
 
+                                <li>
+                                    <a href="kosullar.jsp">Havale Bilgileri</a>
+                                </li>
+
+
                             </ul>
                         </div>
                     </div>
@@ -29,22 +38,28 @@
 
                 <div class="col-sm-6 col-md-3 collapsed-block ">
                     <div class="module clearfix">
-                        <h3 class="modtitle"> Contact Us </h3>
+                        <h3 class="modtitle"> İletişim </h3>
                         <div class="modcontent">
                             <ul class="contact-address">
                                 <li>
                                     <span class="fa fa-map-marker">
+                                        <%
 
-                                    </span> My Company, 42 avenue des Champs Elysées 75000 Paris France</li>
+                                            ResultSet rss = dba.data("adresler");
+                                            if(rss.next()){
+                                            
+                                        %>
+                                    </span> <Şirket İsmi>, <%=rss.getString("adres") + " " + rss.getString("postaKodu")%></li>
                                 <li>
                                     <span class="fa fa-envelope-o">
 
-                                    </span> Email: <a href="#"> sales@yourcompany.com</a>
+                                    </span> Email: <a href="#"> sirket@mail.com</a>
                                 </li>
                                 <li>
                                     <span class="fa fa-phone">&nbsp;
-                                    </span> Phone 1: 0123456789 
-                                    <br>Phone 2: (123) 4567890</li>
+                                    </span> <%=rss.getString("ilce")%> 
+                                    <br><%=rss.getString("il")%> </li>
+                                    <%}%>
                             </ul>
                         </div>
                     </div>

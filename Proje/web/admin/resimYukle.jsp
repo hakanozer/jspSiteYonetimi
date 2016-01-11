@@ -21,7 +21,7 @@
                         <h1 class="page-header">Resim Yükle</h1>
                     </div>
                     
-                    <iframe src="<%=resimUrl%>index.php?resim_id=<%=resim_id%>" frameborder="0" scrolling="no" style="width: 100%; height: 50%;"></iframe>
+                    <iframe src="<%=urunResimUrl%>index.php?resim_id=<%=resim_id%>&album=urunler" frameborder="0" scrolling="no" style="width: 100%; height: 150%;"></iframe>
                     
                     
                 </div>
