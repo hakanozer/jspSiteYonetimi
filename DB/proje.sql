@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-10 15:04:56
+Date: 2016-01-11 09:57:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -468,3 +468,43 @@ INSERT INTO `urun_resimleri` VALUES ('18', '4', '4_3092407Koala.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('19', '4', '4_21216073Penguins.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('20', '5', '5_17674658Desert.jpg', '5');
 INSERT INTO `urun_resimleri` VALUES ('21', '5', '5_22817309Chrysanthemum.jpg', '5');
+
+-- ----------------------------
+-- Table structure for videolar
+-- ----------------------------
+DROP TABLE IF EXISTS `videolar`;
+CREATE TABLE `videolar` (
+  `video_id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_baslik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_iFrame` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_kategori` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_detay` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`video_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of videolar
+-- ----------------------------
+INSERT INTO `videolar` VALUES ('8', 'Berker', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/2fu8gqFN3XE\" frameborder=\"0\" allowfullscreen></iframe>', 'korku', '<p>G&uuml;zel şarkı</p>\r\n');
+INSERT INTO `videolar` VALUES ('9', 'Fenerbahçe', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/t95D9k8R64s\" frameborder=\"0\" allowfullscreen></iframe>', 'korku', '<p>&Ouml;ğrenilmiş &Ccedil;aresizlik</p>\r\n');
+INSERT INTO `videolar` VALUES ('10', '6-0 Koydular', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/oF4WVn567U0\" frameborder=\"0\" allowfullscreen></iframe>', 'Komedi', '<p>yetmedi 6-0 koydular</p>\r\n');
+INSERT INTO `videolar` VALUES ('11', 'irem derici', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/tuAYyDO5fEs\" frameborder=\"0\" allowfullscreen></iframe>', 'Spor', '<p>ne s&ouml;lemiş beeeee</p>\r\n');
+
+-- ----------------------------
+-- Table structure for video_kategori
+-- ----------------------------
+DROP TABLE IF EXISTS `video_kategori`;
+CREATE TABLE `video_kategori` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `kategoriAdi` varchar(111) CHARACTER SET utf8 NOT NULL,
+  `kategoriAciklama` varchar(111) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of video_kategori
+-- ----------------------------
+INSERT INTO `video_kategori` VALUES ('24', 'Spor', 'Spor videolar');
+INSERT INTO `video_kategori` VALUES ('27', 'Korku', 'gerilim');
+INSERT INTO `video_kategori` VALUES ('28', 'Komedi', 'komik');
+INSERT INTO `video_kategori` VALUES ('29', 'Macera', 'Soluksuz izlenecek videolar.');
