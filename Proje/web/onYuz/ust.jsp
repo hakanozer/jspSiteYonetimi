@@ -2,6 +2,10 @@
 <%@include file="oturumDenetim.jsp" %>
 <%@page import="sinif.DB" %>
 <% DB db = new DB();  %>
+<%
+    UID cruUID = new UID();
+session.setAttribute("SepetID", cruUID.toString());
+%>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]>
