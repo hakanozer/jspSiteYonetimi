@@ -11,9 +11,10 @@
 <footer class="footer-container">
     <section class="footer-navbar ">
         <div class="container content">
-            <div class="row"> 
+            <div class="row">
                 <div class="col-sm-6 col-md-3 box-information">
                     <div class="module clearfix">
+<<<<<<< HEAD
                         <h3 class="modtitle">Bilgi</h3>
                         <div class="modcontent"><ul class="menu">
                                 <li>
@@ -198,6 +199,10 @@
             window.cookieconsent_options = {"message": "This website uses cookies to ensure you get the best experience on our website - ", "dismiss": "Got it!", "learnMore": "More info", "link": "https://en.wikipedia.org/wiki/HTTP_cookie", "theme": "dark-bottom"};
     </script> <!-- End Cookie plugin --></footer>
 
+=======
+                        <h3 class="modtitle">Information</h3>
+                         
+>>>>>>> origin/master
 
 
 </body>
