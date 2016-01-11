@@ -31,7 +31,7 @@
         String siteFyt = request.getParameter("siteFyt");
         String seckatID = request.getParameter("seckatID");
         try {
-            db.st.executeUpdate("insert into urunler values(null,'" + seckatID + "' ,'" + urunAdi + "' ,'" + kisaAcik + "' ,'" + detay + "' ,'" + piyasaFyt + "' , '" + siteFyt + "' ,'0', now())");
+            db.st.executeUpdate("insert into urunler values(null,'" + seckatID + "' ,'" + urunAdi + "' ,'" + kisaAcik + "' ,'0','0','0','" + detay + "' ,'" + piyasaFyt + "' , '" + siteFyt + "' ,'0', now())");
             out.print("<script>window.location.href = 'urunSyf.jsp';</script>");
         } catch (Exception ex) {
 
@@ -206,7 +206,7 @@
         <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    DataTables Advanced Tables
+                    Ürünler
                 </div>
                 <!-- /.panel-heading -->
                 <div class="panel-body">
@@ -214,15 +214,15 @@
                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                             <thead>
                                 <tr>
-                                    <th>id</th>
-                                    <th>katID</th>
-                                    <th>baslik</th>
-                                    <th>kisaAciklama</th>
-                                    <th>detay</th>
-                                    <th>piyasaFiyati</th>
-                                    <th>gecerliFiyat</th>
-                                    <th>gosterim</th>
-                                    <th>tarih</th>
+                                    <th>Ürün ID</th>
+                                    <th>Kategori ID</th>
+                                    <th>Adı</th>
+                                    <th>Açıklama</th>
+                                    <th>Detay</th>
+                                    <th>Piyasa Fiyatı</th>
+                                    <th>Site Fiyatı</th>
+                                    <th>Gösterim</th>
+                                    <th>Tarih</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </thead>
@@ -244,7 +244,7 @@
                                     <td><%=rs.getString("gosterim")%></td>
                                     <td><%=rs.getString("tarih")%></td>
                                     <td style="text-align: center;">
-                                        <!--<a href="urunSyf.jsp?duzenle&urunID=<%=rs.getString("id")%>&urunAdi=<%=rs.getString("baslik")%>&seckatID=<%=rs.getString("katID")%>&kisaAciklama=<%=rs.getString("kisaAciklama")%>&detayi=<%=rs.getString("detay")%>&piyasaFiyat=<%=rs.getString("piyasaFiyati")%>&siteFiyat=<%=rs.getString("gecerliFiyat")%>" class="btn btn-info">Düzenle</a>!-->
+                                      
                                         <a href="urunSyf.jsp?duzenle&urunID=<%=rs.getString("id")%>"  class="btn btn-info">Düzenle</a>
                                         <a href="urunSyf.jsp?sil&urunID=<%=rs.getString("id")%>" class="btn btn-danger">Sil</a>
                                         <a href="resimYukle.jsp?resim_id=<%=rs.getString("id")%>" class="btn btn-danger">Resim Ekle</a>
