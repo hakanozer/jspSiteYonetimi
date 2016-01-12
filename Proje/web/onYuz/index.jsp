@@ -11,20 +11,20 @@
     <div class="module customhtml policy-v3">
         <div class="modcontent clearfix">
             <div class="block-policy-v3">
-                <div class="policy policy1 col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="policy-inner"><span class="ico-policy"></span>
-                        <h2>30 days return</h2><a href="#">money back</a></div>
-                </div>
-                <div class="policy policy2 col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="policy-inner"><span class="ico-policy"></span><a href="#"><h2>free shipping</h2>on all orders over $99</a></div>
-                </div>
-                <div class="policy policy3 col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="policy-inner"><span class="ico-policy"></span><a href="#"><h2>lowest price</h2>guarantee </a></div>
-                </div>
-                <div class="policy policy4 col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <div class="policy-inner"><span class="ico-policy"></span><a href="#"><h2>safe shopping</h2>guarantee </a></div>
-                </div>
-            </div>
+                                                        <%                                                                                       
+                                                                                            
+                                                                                                ResultSet rsKargo = db.data("kargo");
+                                                                                                while(rsKargo.next()) {
+                                                                                            %>
+                                                            <div class="policy policy<%=2%> col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                                                                <div class="policy-inner">
+                                                                    <span class="ico-policy"></span>
+
+                                                                    <a href="#"><h2><%=rsKargo.getString("kargo_adi")%></h2>Kargo Ücreti <%=rsKargo.getString("ucreti")%></a>
+                                                                </div>
+                                                            </div>
+                                                            <% }%>
+              </div>
         </div>
     </div>
 </div>
