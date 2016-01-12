@@ -6,6 +6,19 @@
     UID cruUID = new UID();
 session.setAttribute("SepetID", cruUID.toString());
 %>
+<%
+// kategori data
+    ArrayList<kategori> ktl = new ArrayList();
+    
+    ResultSet rskll = db.data("kategori");
+    while (rskll.next()) {
+        kategori kt = new kategori();
+        kt.setKatID(rskll.getString("katID"));
+        kt.setUstKat(rskll.getString("ustKat"));
+        kt.setKatAdi(rskll.getString("katAdi"));
+        ktl.add(kt);
+    }
+%>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]>
@@ -545,61 +558,44 @@ session.setAttribute("SepetID", cruUID.toString());
                                     <div class="header-bottom-right col-md-9 col-sm-8 col-xs-12 ">
                                         <!-- Search -->
                                         <div id="sosearchpro" class="sosearchpro-wrapper so-search search-pro ">
-                                            <form method="GET" action="index.php">
-                                                <div id="search0" class="search input-group">
-                                                    <div class="select_category filter_type icon-select">
-                                                        <select class="no-border" name="category_id">
-                                                            <option value="0">All Categories</option>
-                                                            <option value="78">Apparel</option>
-                                                            <option value="77">Cables &amp; Connectors</option>
-                                                            <option value="82">Cameras &amp; Photo</option>
-                                                            <option value="80">Flashlights &amp; Lamps</option>
-                                                            <option value="81">Mobile Accessories</option>
-                                                            <option value="79">Video Games</option>
-                                                            <option value="20">Jewelry &amp; Watches</option>
-                                                            <option value="76">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Earings</option>
-                                                            <option value="26">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wedding Rings</option>
-                                                            <option value="27">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Men Watches</option>
-                                                            <option value="18">Electronics</option>
-                                                            <option value="46">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Battereries &amp; Chargers</option>
-                                                            <option value="45">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Headphones, Headsets</option>
-                                                            <option value="30">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home Audio</option>
-                                                            <option value="32">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Mp3 Players &amp; Accessories</option>
-                                                            <option value="25">Sports &amp; Outdoors</option>
-                                                            <option value="35">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Camping &amp; Hiking</option>
-                                                            <option value="31">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fishing</option>
-                                                            <option value="29">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Golf Supplies</option>
-                                                            <option value="28">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Outdoor &amp; Traveling</option>
-                                                            <option value="57">Toys &amp; Hobbies</option>
-                                                            <option value="73">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FPV System &amp; Parts</option>
-                                                            <option value="75">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Helicopters &amp; Parts</option>
-                                                            <option value="74">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RC Cars &amp; Parts</option>
-                                                            <option value="72">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Walkera</option>
-                                                            <option value="17">Bags, Holiday Supplies</option>
-                                                            <option value="68">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gift &amp; Lifestyle Gadgets</option>
-                                                            <option value="69">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gift for Man</option>
-                                                            <option value="70">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gift for Woman</option>
-                                                            <option value="71">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lighter &amp; Cigar Supplies</option>
-                                                            <option value="24">Health &amp; Beauty</option>
-                                                            <option value="64">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Bath &amp; Body</option>
-                                                            <option value="66">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Fragrances</option>
-                                                            <option value="67">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Salon &amp; Spa Equipment</option>
-                                                            <option value="65">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Shaving &amp; Hair Removal</option>
-                                                            <option value="33">Automotive</option>
-                                                            <option value="61">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car Alarms and Security</option>
-                                                            <option value="62">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Car Audio &amp; Speakers</option>
-                                                            <option value="63">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Gadgets &amp; Auto Parts</option>
-                                                            <option value="60">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;More Car Accessories</option>
-                                                            <option value="34">Smartphone &amp; Tablets</option>
-                                                            <option value="44">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessories for i Pad</option>
-                                                            <option value="43">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessories for iPhone</option>
-                                                            <option value="47">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Accessories for Tablet PC</option>
-                                                        </select>
-                                                    </div>
-                                                    <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Search" name="search">
-                                                        <ul class="dropdown-menu"></ul><span class="input-group-btn"><button type="submit" class="button-search btn btn-default btn-lg" name="submit_search"><i class="fa fa-search"></i></button></span></div>
-                                                <input type="hidden" name="route" value="product/search">
-                                            </form>
+                                            <form method="GET" action="urunSearch.jsp">
+                    <div id="search0" class="search input-group">
+                        <div class="select_category filter_type icon-select">
+                            <select class="no-border" name="category_id">
+                                <option value="0">Tüm Kategoriler</option>
+                             <%    
+                                 String dseckatID = "";
+                                 for (kategori item : ktl) {
+
+                                                if (item.getUstKat().equals("0")) {
+                                                    if (dseckatID.equals(item.getKatID())) {
+                                                        out.print("<option selected=\"selected\" name=\""+item.getKatID()+"\" value=\""+item.getKatID()+"\">"+item.getKatAdi()+"</option>");
+                                                    } else {
+                                                        out.print("<option name=\""+item.getKatID()+"\" value=\""+item.getKatID()+"\">"+item.getKatAdi()+"</option>");
+                                                    }
+
+                                                    for (kategori items : ktl) {
+                                                        if (item.getKatID().equals(items.getUstKat())) {
+
+                                                            if (dseckatID.equals(items.getKatID())) {
+                                                                out.print("<option selected=\"selected\" value=\""+items.getKatID()+"\"> &nbsp;&nbsp; "+items.getKatAdi()+"</option>");
+                                                            } else {
+                                                                out.print("<option value=\""+items.getKatID()+"\"> &nbsp;&nbsp; "+items.getKatAdi()+"</option>");
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+                                            }
+
+                                        %>
+
+                            </select>
+                        </div>
+                        <input class="autosearch-input form-control" type="text" value="" size="50" autocomplete="off" placeholder="Arama" name="search">
+                        <ul class="dropdown-menu"></ul><span class="input-group-btn"><button type="submit" class="button-search btn btn-default btn-lg" name="submit_search"><i class="fa fa-search"></i></button></span></div>
+                   <!-- <input type="hidden" name="route" value="product/search"> -->
+                </form>
                                         </div>
                                         <script type="text/javascript">
                                             // Autocomplete */
