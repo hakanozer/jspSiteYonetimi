@@ -6,6 +6,24 @@
     UID cruUID = new UID();
 session.setAttribute("SepetID", cruUID.toString());
 %>
+
+<% ArrayList<kategori> kategoriLs = new ArrayList();
+try{
+    ResultSet rskl = db.data("kategori");
+    while (rskl.next()) {
+        kategori kt = new kategori();
+        kt.setKatID(rskl.getString("katID"));
+        kt.setUstKat(rskl.getString("ustKat"));
+        kt.setKatAdi(rskl.getString("katAdi"));
+        kategoriLs.add(kt);
+    }
+
+} catch(Exception ex) {
+    
+}
+    
+
+%>
 <!DOCTYPE html>
 <!--[if IE]><![endif]-->
 <!--[if IE 8 ]>
@@ -234,275 +252,95 @@ session.setAttribute("SepetID", cruUID.toString());
 
 
                                 <div class="row">
-                                    <div class="sidebar-menu col-md-3 col-sm-4 col-xs-12">
-                                        <div class="responsive so-megamenu">
-                                            <div class="so-vertical-menu no-gutter">
-                                                <nav class="navbar-default">
-                                                    <div class=" container-megamenu container vertical ">
-                                                        <div id="menuHeading">
-                                                            <div class="megamenuToogle-wrapper">
-                                                                <div class="megamenuToogle-pattern">
-                                                                    <div class="container">
-                                                                        <div><span></span><span></span><span></span></div> All Categories <i class="fa fa-chevron-circle-down pull-right arrow-circle"></i></div>
+                                            <div class="sidebar-menu col-md-3 col-sm-4 col-xs-12">
+                                                <div class="responsive so-megamenu">
+                                                    <div class="so-vertical-menu no-gutter">
+                                                        <nav class="navbar-default">
+                                                            <div class=" container-megamenu container vertical ">
+                                                                <div id="menuHeading">
+                                                                    <div class="megamenuToogle-wrapper">
+                                                                        <div class="megamenuToogle-pattern">
+                                                                            <div class="container">
+                                                                                <div>
+                                                                                    <span></span>
+                                                                                    <span></span>
+                                                                                    <span></span>
+                                                                                </div> Kategoriler <i class="fa fa-chevron-circle-down pull-right arrow-circle"></i>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="navbar-header">
+                                                                    <button type="button" id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle">
+                                                                        <span class="icon-bar"></span>
+                                                                        <span class="icon-bar"></span>
+                                                                        <span class="icon-bar"></span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="vertical-wrapper">
+                                                                    <span id="remove-verticalmenu" class="fa fa-times"></span>
+                                                                    <div class="megamenu-pattern">
+                                                                        <div class="container">
+                                                                            <ul class="megamenu">
+                                                                                <li class="home">
+                                                                                    <a href="index.jsp">
+                                                                                        <span><strong>Home</strong></span>
+                                                                                    </a>
+                                                                                </li>
+                                                                                
+                                                                        <%    for (kategori item : kategoriLs) {
+
+                                                                                                                            if (item.getUstKat().equals("0")) {
+
+                                                                                                                    %>
+                                                                                                                    <li class="item-vertical style1 with-sub-menu hover">
+                                                                                                                        <p class="close-menu"></p>
+
+                                                                                                                        <a href="urunListeleme.jsp?urunKateID=<%=item.getKatID()%>" class="clearfix">
+                                                                                                                            <span>                                                                                                                   
+                                                                                                                                <strong> <%=item.getKatAdi()%> </strong>                                                                                                                   
+                                                                                                                            </span>                                                                                                                     
+                                                                                                                            <span class="label"></span>
+                                                                                                                        </a>  
+                                                                                                                    </li> <%
+
+                                                                                                                                for (kategori items : kategoriLs) {
+
+                                                                                                                                    if (item.getKatID().equals(items.getUstKat())) {
+
+                                                            
+                                                                                                                                         %>
+                                                                                                                    <li class="item-vertical style1 with-sub-menu hover">
+                                                                                                                        <p class="close-menu"></p>
+
+                                                                                                                        <a href="urunListeleme.jsp?urunKateID=<%=items.getKatID()%>" class="clearfix">
+                                                                                                                            <span>                                                                                                                   
+                                                                                                                                <strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%=items.getKatAdi()%> </strong>                                                                                                                   
+                                                                                                                            </span>                                                                                                                     
+                                                                                                                            <span class="label"></span>
+                                                                                                                        </a>  
+                                                                                                                    </li> <%
+
+                                                                                                                                    }
+                                                                                                                                }
+                                                                                                                            }
+
+                                                                                                                        }
+
+                                                                                                                    %>
+                                                                        
+                                                                                
+                                                                                <li class="loadmore"><i class="fa fa-plus-square-o"></i>
+                                                                                            <span class="more-view"> More Categories</span>
+                                                                                        </li>
+                                                                            </ul>
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="navbar-header">
-                                                            <button type="button" id="show-verticalmenu" data-toggle="collapse" class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                                                        </div>
-                                                        <div class="vertical-wrapper"><span id="remove-verticalmenu" class="fa fa-times"></span>
-                                                            <div class="megamenu-pattern">
-                                                                <div class="container">
-                                                                    <ul class="megamenu">
-                                                                        <li class="home"><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=common/home"><span><strong>Home</strong></span></a></li>
-                                                                        <li class="item-vertical style1 with-sub-menu hover">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33" class="clearfix"><span><strong><i class="icon icon1"></i> Automotive &amp; Motocrycle </strong></span><span class="label"></span></a>
-                                                                            <div class="sub-menu" data-subwidth="100" style="width: 727px;">
-                                                                                <div class="content">
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-12">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=78" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=78';" class="main-menu">Apparel</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_47" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_47';">Accessories for Tablet PC</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_44" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_44';">Accessories for i Pad</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_43" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34_43';">Accessories for iPhone</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17';">Bags, Holiday Supplies</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_61" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_61';">Car Alarms and Security</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_62" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_62';">Car Audio &amp; Speakers</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=77" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=77';" class="main-menu">Cables &amp; Connectors</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=82" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=82';">Cameras &amp; Photo</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18';">Electronics</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28';">Outdoor &amp; Traveling</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_35" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_35';" class="main-menu">Camping &amp; Hiking</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76';">Earings</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_65" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_65';">Shaving &amp; Hair Removal</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_67" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_67';">Salon &amp; Spa Equipment</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34';" class="main-menu">Smartphone &amp; Tablets</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25';">Sports &amp; Outdoors</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64';">Bath &amp; Body</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63';">Gadgets &amp; Auto Parts</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17';" class="main-menu">Bags, Holiday Supplies</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_46" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_46';">Battereries &amp; Chargers</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64';">Bath &amp; Body</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45';">Headphones, Headsets</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30';">Home Audio</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25" class="clearfix"><span><strong><i class="icon icon2"></i> Electronic </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical with-sub-menu hover">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25" class="clearfix"><span><strong><i class="icon icon3"></i> Sports &amp; Outdoors </strong></span><span class="label"></span></a>
-                                                                            <div class="sub-menu" data-subwidth="60" style="width: 436.2px;">
-                                                                                <div class="content">
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-6">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-12 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=81" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=81';" class="main-menu">Mobile Accessories</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63';">Gadgets &amp; Auto Parts</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_64';">Bath &amp; Body</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17';">Bags, Holiday Supplies</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_46" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_46';" class="main-menu">Battereries &amp; Chargers</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28';">Outdoor &amp; Traveling</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=80" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=80';">Flashlights &amp; Lamps</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_66" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_66';">Fragrances</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_31" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_31';" class="main-menu">Fishing</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_73" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_73';">FPV System &amp; Parts</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18';">Electronics</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76';">Earings</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_60" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_60';">More Car Accessories</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="col-sm-6">
-                                                                                            <div class="row banner">
-                                                                                                <a href="#"><img src="image/menu_bg2.jpg" alt="banner1"></a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="item-vertical with-sub-menu hover">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24" class="clearfix"><span><strong><i class="icon icon5"></i> Health &amp; Beauty </strong></span><span class="label"></span></a>
-                                                                            <div class="sub-menu" data-subwidth="100" style="width: 727px;">
-                                                                                <div class="content">
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-12">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_61" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_61';" class="main-menu">Car Alarms and Security</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_62" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_62';">Car Audio &amp; Speakers</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63';">Gadgets &amp; Auto Parts</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63';">Gadgets &amp; Auto Parts</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45';">Headphones, Headsets</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24';" class="main-menu">Health &amp; Beauty</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30';">Home Audio</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75';">Helicopters &amp; Parts</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_28';">Outdoor &amp; Traveling</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57';">Toys &amp; Hobbies</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18';" class="main-menu">Electronics</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_76';">Earings</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_67" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_67';">Salon &amp; Spa Equipment</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_65" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_65';">Shaving &amp; Hair Removal</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34';">Smartphone &amp; Tablets</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25';" class="main-menu">Sports &amp; Outdoors</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=80" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=80';">Flashlights &amp; Lamps</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_66" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24_66';">Fragrances</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_31" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=25_31';">Fishing</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_73" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_73';">FPV System &amp; Parts</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                                <div class="col-sm-4 static-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_60" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_60';" class="main-menu">More Car Accessories</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_71" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_71';">Lighter &amp; Cigar Supplies</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_32" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_32';">Mp3 Players &amp; Accessories</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_27" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20_27';">Men Watches</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=81" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=81';">Mobile Accessories</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=33_63';" class="main-menu">Gadgets &amp; Auto Parts</a>
-                                                                                                                <ul>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_68" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_68';">Gift &amp; Lifestyle Gadgets</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_69" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_69';">Gift for Man</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_70" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_70';">Gift for Woman</a></li>
-                                                                                                                    <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_70" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17_70';">Gift for Woman</a></li>
-                                                                                                                </ul>
-                                                                                                            </li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="item-vertical with-sub-menu hover">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34" class="clearfix"><span><strong><i class="icon icon4"></i> Smartphone &amp; Tablets </strong></span><span class="label"></span></a>
-                                                                            <div class="sub-menu" data-subwidth="30" style="width: 218.1px;">
-                                                                                <div class="content">
-                                                                                    <div class="row">
-                                                                                        <div class="col-sm-12">
-                                                                                            <div class="row">
-                                                                                                <div class="col-sm-12 hover-menu">
-                                                                                                    <div class="menu">
-                                                                                                        <ul>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_45';" class="main-menu">Headphones, Headsets</a></li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=18_30';" class="main-menu">Home Audio</a></li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24';" class="main-menu">Health &amp; Beauty</a></li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75';" class="main-menu">Helicopters &amp; Parts</a></li>
-                                                                                                            <li><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75" onClick="window.location = 'http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57_75';" class="main-menu">Helicopters &amp; Parts</a></li>
-                                                                                                        </ul>
-                                                                                                    </div>
-                                                                                                </div>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=80" class="clearfix"><span><strong><i class=" icon icon6"></i> Flashlights &amp; Lamps </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=82" class="clearfix"><span><strong><i class="icon icon8"></i> Camera &amp; Photo </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=34" class="clearfix"><span><strong><i class="icon icon13"></i> Smartphone &amp; Tablets </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=72" class="clearfix"><span><strong><i class="icon icon9"></i> Outdoor &amp; Traveling Supplies </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=24" class="clearfix"><span><strong><i class="icon icon10"></i> Health &amp; Beauty </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=57" class="clearfix"><span><strong><i class="icon icon11"></i> Toys &amp; Hobbies </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=20" class="clearfix"><span><strong><i class="icon icon12"></i> Jewelry &amp; Watches </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=17" class="clearfix"><span><strong><i class="icon icon7"></i> Bags, Holiday Supplies </strong></span><span class="label"></span></a></li>
-                                                                        <li class="item-vertical" style="display: none;">
-                                                                            <p class="close-menu"></p><a href="http://opencart.magentech.com/themes/so_market/layout4/index.php?route=product/category&amp;path=60" class="clearfix"><span><strong><i class=""></i> More Car Accessories </strong></span><span class="label"></span></a></li>
-                                                                        <li class="loadmore"><i class="fa fa-plus-square-o"></i><span class="more-view"> More Categories</span></li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        </nav>
                                                     </div>
-                                                </nav>
-                                            </div>
-                                        </div>
+                                                </div>
                                         <script type="text/javascript">
                                             $(document).ready(function () {
                                                 var itemver = 13;
