@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-01-10 15:04:56
+Date: 2016-01-11 09:57:05
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -468,3 +468,100 @@ INSERT INTO `urun_resimleri` VALUES ('18', '4', '4_3092407Koala.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('19', '4', '4_21216073Penguins.jpg', '4');
 INSERT INTO `urun_resimleri` VALUES ('20', '5', '5_17674658Desert.jpg', '5');
 INSERT INTO `urun_resimleri` VALUES ('21', '5', '5_22817309Chrysanthemum.jpg', '5');
+
+-- ----------------------------
+-- Table structure for videolar
+-- ----------------------------
+DROP TABLE IF EXISTS `videolar`;
+CREATE TABLE `videolar` (
+  `video_id` int(11) NOT NULL AUTO_INCREMENT,
+  `video_baslik` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_iFrame` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_kategori` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  `video_detay` varchar(255) COLLATE utf8_turkish_ci DEFAULT NULL,
+  PRIMARY KEY (`video_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of videolar
+-- ----------------------------
+INSERT INTO `videolar` VALUES ('8', 'Berker', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/2fu8gqFN3XE\" frameborder=\"0\" allowfullscreen></iframe>', 'korku', '<p>G&uuml;zel şarkı</p>\r\n');
+INSERT INTO `videolar` VALUES ('9', 'Fenerbahçe', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/t95D9k8R64s\" frameborder=\"0\" allowfullscreen></iframe>', 'korku', '<p>&Ouml;ğrenilmiş &Ccedil;aresizlik</p>\r\n');
+INSERT INTO `videolar` VALUES ('10', '6-0 Koydular', '<iframe width=\"420\" height=\"315\" src=\"https://www.youtube.com/embed/oF4WVn567U0\" frameborder=\"0\" allowfullscreen></iframe>', 'Komedi', '<p>yetmedi 6-0 koydular</p>\r\n');
+INSERT INTO `videolar` VALUES ('11', 'irem derici', '<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/tuAYyDO5fEs\" frameborder=\"0\" allowfullscreen></iframe>', 'Spor', '<p>ne s&ouml;lemiş beeeee</p>\r\n');
+
+-- ----------------------------
+-- Table structure for video_kategori
+-- ----------------------------
+DROP TABLE IF EXISTS `video_kategori`;
+CREATE TABLE `video_kategori` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `kategoriAdi` varchar(111) CHARACTER SET utf8 NOT NULL,
+  `kategoriAciklama` varchar(111) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of video_kategori
+-- ----------------------------
+INSERT INTO `video_kategori` VALUES ('24', 'Spor', 'Spor videolar');
+INSERT INTO `video_kategori` VALUES ('27', 'Korku', 'gerilim');
+INSERT INTO `video_kategori` VALUES ('28', 'Komedi', 'komik');
+INSERT INTO `video_kategori` VALUES ('29', 'Macera', 'Soluksuz izlenecek videolar.');
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for sepet
+-- ----------------------------
+DROP TABLE IF EXISTS `sepet`;
+CREATE TABLE `sepet` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sepetID` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
+  `urunID` int(11) NOT NULL,
+  `adet` tinyint(4) NOT NULL,
+  `tarih` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=85 DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
+
+-- ----------------------------
+-- Records of sepet
+-- ----------------------------
+INSERT INTO `sepet` VALUES ('48', '-3031b686:15230de15ae:-7fdb', '4', '2', '2016-01-11 18:22:07');
+INSERT INTO `sepet` VALUES ('49', '-3031b686:15230de15ae:-7fda', '4', '2', '2016-01-11 18:35:49');
+INSERT INTO `sepet` VALUES ('50', '-3031b686:15230de15ae:-7fd9', '4', '2', '2016-01-11 18:47:55');
+INSERT INTO `sepet` VALUES ('51', '-3031b686:15230de15ae:-7fd8', '4', '2', '2016-01-11 18:48:16');
+INSERT INTO `sepet` VALUES ('52', '-3031b686:15230de15ae:-7fd7', '4', '1', '2016-01-11 18:51:04');
+INSERT INTO `sepet` VALUES ('53', '-3031b686:15230de15ae:-7fd6', '5', '1', '2016-01-11 18:51:58');
+INSERT INTO `sepet` VALUES ('54', '-3031b686:15230de15ae:-7fd5', '5', '1', '2016-01-11 18:53:56');
+INSERT INTO `sepet` VALUES ('55', '-3031b686:15230de15ae:-7fd4', '5', '1', '2016-01-11 18:54:02');
+INSERT INTO `sepet` VALUES ('56', '-3031b686:15230de15ae:-7fd3', '4', '1', '2016-01-11 18:54:18');
+INSERT INTO `sepet` VALUES ('57', '-3031b686:15230de15ae:-7fd2', '4', '1', '2016-01-11 18:54:55');
+INSERT INTO `sepet` VALUES ('58', '-3031b686:15230de15ae:-7fd1', '4', '1', '2016-01-11 18:55:41');
+INSERT INTO `sepet` VALUES ('59', '-3031b686:15230de15ae:-7fd0', '4', '1', '2016-01-11 18:56:33');
+INSERT INTO `sepet` VALUES ('60', '-3031b686:15230de15ae:-7fcf', '4', '1', '2016-01-11 18:57:10');
+INSERT INTO `sepet` VALUES ('61', '-3031b686:15230de15ae:-7fce', '4', '1', '2016-01-11 18:57:37');
+INSERT INTO `sepet` VALUES ('62', '-3031b686:15230de15ae:-7fcd', '4', '2', '2016-01-11 19:03:54');
+INSERT INTO `sepet` VALUES ('63', '-3031b686:15230de15ae:-7fcc', '5', '1', '2016-01-11 19:04:08');
+INSERT INTO `sepet` VALUES ('64', '-3031b686:15230de15ae:-7fcb', '4', '2', '2016-01-11 19:30:56');
+INSERT INTO `sepet` VALUES ('65', '-3031b686:15230de15ae:-7fca', '4', '2', '2016-01-11 19:45:08');
+INSERT INTO `sepet` VALUES ('66', '-3031b686:15230de15ae:-7fc9', '4', '2', '2016-01-11 19:45:56');
+INSERT INTO `sepet` VALUES ('67', '-3031b686:15230de15ae:-7fc8', '4', '2', '2016-01-11 19:47:56');
+INSERT INTO `sepet` VALUES ('68', '-3031b686:15230de15ae:-7fc7', '4', '2', '2016-01-11 19:48:30');
+INSERT INTO `sepet` VALUES ('69', '-3031b686:15230de15ae:-7fc6', '4', '2', '2016-01-11 19:49:34');
+INSERT INTO `sepet` VALUES ('70', '-3031b686:15230de15ae:-7fc5', '4', '2', '2016-01-11 19:51:12');
+INSERT INTO `sepet` VALUES ('71', '-3031b686:15230de15ae:-7fc4', '4', '2', '2016-01-11 19:52:20');
+INSERT INTO `sepet` VALUES ('72', '-3031b686:15230de15ae:-7fc3', '4', '2', '2016-01-11 19:53:57');
+INSERT INTO `sepet` VALUES ('73', '-3031b686:15230de15ae:-7fc2', '4', '2', '2016-01-11 19:58:12');
+INSERT INTO `sepet` VALUES ('74', '-3031b686:15230de15ae:-7fc1', '4', '1', '2016-01-11 19:59:02');
+INSERT INTO `sepet` VALUES ('75', '-3031b686:15230de15ae:-7fc0', '4', '1', '2016-01-11 19:59:43');
+INSERT INTO `sepet` VALUES ('76', '-3031b686:15230de15ae:-7fbf', '4', '1', '2016-01-11 20:14:11');
+INSERT INTO `sepet` VALUES ('77', '-3031b686:15230de15ae:-7fbe', '4', '1', '2016-01-11 20:15:09');
+INSERT INTO `sepet` VALUES ('78', '-3031b686:15230de15ae:-7fbd', '4', '1', '2016-01-11 20:16:05');
+INSERT INTO `sepet` VALUES ('79', '-3031b686:15230de15ae:-7fbc', '4', '1', '2016-01-11 20:16:29');
+INSERT INTO `sepet` VALUES ('80', '-3031b686:15230de15ae:-7fbb', '4', '2', '2016-01-11 20:16:41');
+INSERT INTO `sepet` VALUES ('81', '-3031b686:15230de15ae:-7fba', '4', '3', '2016-01-11 20:18:11');
+INSERT INTO `sepet` VALUES ('82', '-3031b686:15230de15ae:-7fb9', '4', '1', '2016-01-11 20:18:19');
+INSERT INTO `sepet` VALUES ('83', '-3031b686:15230de15ae:-7fb8', '5', '1', '2016-01-11 20:19:07');
+INSERT INTO `sepet` VALUES ('84', '-3031b686:15230de15ae:-7fb7', '4', '1', '2016-01-11 23:45:26');
+

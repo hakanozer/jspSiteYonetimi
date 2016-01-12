@@ -3,7 +3,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="sinif.DB" %>
 <%
-
+    boolean yonlendirme = (request.getParameter("odemeKayit") != null);
+    
     boolean gonderDurum = (request.getParameter("giris") != null);
     if (gonderDurum) {
         DB db = new DB();
@@ -18,8 +19,8 @@
 
                 session.setAttribute("musteriAdi", Base64.encodeBase64String(rs.getString("musteriAdi").getBytes()));
                 session.setAttribute("musteriSoyadi", Base64.encodeBase64String(rs.getString("musteriSoyadi").getBytes()));
-                session.setAttribute("musteriMail", Base64.encodeBase64String(rs.getString("mail").getBytes()));
-                
+                session.setAttribute("musteriMail", rs.getString("mail"));
+                session.setAttribute("musteriID", rs.getString("musteriID"));
                 // çerez bilgileri tutuluyor
                 boolean hatirlaDurum = (request.getParameter("hatirla") != null);
                 if (hatirlaDurum) {
@@ -39,8 +40,11 @@
                 }
                 db.kapat();
                 // admin sayfasına yönlen
+                if(yonlendirme){
+                    response.sendRedirect("odemeSayfasi.jsp");
+                }else{
                 response.sendRedirect("index.jsp");
-
+                }
             } else {
 
                 response.sendRedirect("giris.jsp?ban&ban=1");
@@ -49,4 +53,5 @@
             response.sendRedirect("giris.jsp?hata&hata=1");
         }
     }
+   
 %>

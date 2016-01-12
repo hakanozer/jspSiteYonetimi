@@ -4,7 +4,7 @@
 <%
     // beni hatırla işaretlenmiş ise
   
-     String adi="";
+     String  adi="";
      String soyadi="";
     
      Cookie[] cookies = request.getCookies();
