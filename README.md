@@ -1,22 +1,22 @@
 # JSP E-Ticaret Sistemi
-Bu proje java jsp teknolojisi kullanılarak, bir işletme yada kullanıcının ihtiyacı olan e-ticaret tarafındaki yazılım beklentilerimi karşılamayı amaçlar.
+Bu proje java jsp teknolojisi kullanÄ±larak, bir iÅŸletme yada kullanÄ±cÄ±nÄ±n ihtiyacÄ± olan internet tarafÄ±ndaki yazÄ±lÄ±m beklentilerimi karÅŸÄ±lamayÄ± amaÃ§lar.
 
-# Site Görüntüleri
+# Site GÃ¶rÃ¼ntÃ¼leri
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_ana_sayfa.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_ana_sayfa.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_arama_sonuclari.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_arama_sonuclari.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_icerik_yonetimi.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_icerik_yonetimi.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategori_ayrinti.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategori_ayrinti.png" width="200" /></a>
-<a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategoriler.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategoriler.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kullanici_giris.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kullanici_giris.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_odeme_adres.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_odeme_adres.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_odeme_ekrani.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_odeme_ekrani.png" width="200" /></a>
+<a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategoriler.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_kategoriler.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_quick_view.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_quick_view.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_sepet_detay.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_sepet_detay.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_urun_detay.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_urun_detay.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_urun_sepet_ekle.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_urun_sepet_ekle.png" width="200" /></a>
 
 
-# Admin Görüntüleri
+# Admin GÃ¶rÃ¼ntÃ¼leri
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/adim_haber_yonetimi.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/adim_haber_yonetimi.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/admi_anket_yonetimi.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/admi_anket_yonetimi.png" width="200" /></a>
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/admin_anket_yonetimi.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/admin_anket_yonetimi.png" width="200" /></a>
