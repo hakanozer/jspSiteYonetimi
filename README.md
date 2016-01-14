@@ -1,5 +1,5 @@
 # JSP E-Ticaret Sistemi
-Bu proje java jsp teknolojisi kullanılarak, bir işletme yada kullanıcının ihtiyacı olan internet tarafındaki yazılım beklentilerimi karşılamayı amaçlar.
+Bu proje java jsp teknolojisi kullanılarak, bir işletme yada kullanıcının ihtiyacı olan internet tarafındaki yazılım beklentilerini karşılamayı amaçlar.
 
 # Site Görüntüleri
 <a href="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_ana_sayfa.png" target="_blank"><img src="https://github.com/hakanozer/jspSiteYonetimi/blob/master/proje_goruntuleri/site_ana_sayfa.png" width="200" /></a>
